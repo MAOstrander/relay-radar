@@ -16,6 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "firebase": "~2.3.2",
+    "angularfire": "~1.1.3"
   }
 }
