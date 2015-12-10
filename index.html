@@ -24,38 +24,57 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Login</a>
+        <a class="navbar-brand" href="#">Relay Radar</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/#/songs/list" id="list">Login</a></li>
-          <li><a href="/#/songs/add" id="add">What is This?</a></li>
-          <li><a href="#" id="more">Why Log In?</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Options<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li>playlist1</li>
-              <li>playlist2</li>
-              <li><button id="playlist-button" class="btn btn-default">Logout</button></li>
-            </ul>
-          </li>
+          <li><a>Login</a></li>
+          <li><a>What is This?</a></li>
+          <li><a>Why Log In?</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div id="content" class="container-fluid">
+  <div id="content" class="container-fluid" class="angular-google-map-container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <p>This is where the map will be</p>
+
+    <!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+    <div id="map_canvas" ng-controller="test">
+        <script type="text/ng-template" id="searchbox.tpl.html">
+            <input type="text" placeholder="Search Box">
+        </script>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_CENTER"></ui-gmap-search-box>
+        </ui-gmap-google-map>
+    </div>
     
     <div ng-view></div>
       
   </div>
 
+  <div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    Hello from outside the content?
+  </div>
 
-  <script src="lib/bower_components/angular/angular.min.js"></script>
+
+  <script src='lib/bower_components/lodash/lodash.min.js'></script>
+  <script src='lib/bower_components/angular/angular.js'></script>
+  <script src='lib/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+  <script src='lib/bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
   <script src="lib/bower_components/angular-route/angular-route.js"></script>
   <script src="lib/bower_components/firebase/firebase.js"></script>
   <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>

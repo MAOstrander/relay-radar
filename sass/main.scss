@@ -1,7 +1,14 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
-body {
+html, body {
   font: 100% $font-stack;
   color: $primary-color;
+  height: 100%;
+}
+
+.angular-google-map-container { height: 400px; }
+
+.navbar {
+	font-size: 1.5rem;
 }
