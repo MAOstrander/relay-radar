@@ -6,9 +6,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
-});
-
-app.config(['$routeProvider',
+}).config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
       .when('/member', {
@@ -29,17 +27,16 @@ app.controller("test",
 	function($scope, $log, uiGmapGoogleMapApi) {
 
 	$scope.map = { 
-		center: { latitude: 45, longitude: -73 }, 
+		center: { latitude: 36.1667, longitude: -86.7833 },
 		zoom: 8 
 	};
 	var events = {
-          places_changed: function (searchBox) {}
-        }
-        $scope.searchbox = { template:'searchbox.tpl.html', events:events};
-	// uiGmapGoogleMapApi.then(function(maps) {
-	// 	$scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+    places_changed: function (searchBox) {
+    	console.log("searchBox", searchBox);
+    }
+  }
+  $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 
- //    });
 
 
 
