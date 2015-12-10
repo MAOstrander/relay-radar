@@ -45,15 +45,20 @@
     <div id="map_canvas" ng-controller="test">
 
     <div>
-        <input id="from" type="text" ng-model="user.from" placeholder="Type Address" class="ng-pristine ng-valid" autocomplete="on">
-        <input type="hidden" ng-model="user.fromLat">
+        <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
+<!--         <input type="hidden" ng-model="user.fromLat">
         <input type="hidden" ng-model="user.fromLng">
-            <p>{{user.from}} <br> {{'Latitude : ' + user.fromLat + ', Longitutde : ' + user.fromLng}}</p>
+            <p>{{user.from}} <br> {{'Latitude : ' + user.fromLat + ', Longitutde : ' + user.fromLng}}</p> -->
     </div>
         <script type="text/ng-template" id="searchbox.tpl.html">
             <input type="text" placeholder="Search Box">
         </script>
-        <ui-gmap-google-map ui-map="myMap" center="myMap.center" zoom="myMap.zoom" draggable="true" options="options">
+        <ui-gmap-google-map  
+          center="myMap.center" 
+          zoom="myMap.zoom" 
+          draggable="true" 
+          options="options"
+          pan="true">
 <!--             <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box> -->
         </ui-gmap-google-map>
     </div>

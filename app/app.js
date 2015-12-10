@@ -41,7 +41,7 @@ app.controller("test",
   $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 
 
-    $scope.user = {'from': '', 'fromLat': '', 'fromLng' : ''};
+    // $scope.user = {'from': '', 'fromLat': '', 'fromLng' : ''};
     var options = {
         componentRestrictions: {country: "usa"}
     };
@@ -56,26 +56,33 @@ app.controller("test",
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
         console.log("place", place);
-        $scope.user.fromLat = place.geometry.location.lat();
-        $scope.user.fromLng = place.geometry.location.lng();
+        console.log("matfrom", $scope.matfrom);
+        // $scope.user.fromLat = place.geometry.location.lat();
+        // $scope.user.fromLng = place.geometry.location.lng();
         matLat = place.geometry.location.lat();
         matLong = place.geometry.location.lng();
         console.log("longitude", place.geometry.location.lng());
-        $scope.user.from = place.formatted_address;
+        // $scope.user.from = place.formatted_address;
         console.log("place.formatted_address", place.formatted_address);
+        // $scope.panTo(matLat, matLong);
+          // $scope.setCenter(matLat, matLong);
         $scope.myMap = { 
 					center: { latitude: matLat, longitude: matLong },
 					zoom: 13
 				};
-        $scope.$digest();
+        $scope.$apply();
     });
 
-  
+ //  $scope.setCenter = function(lati, longi) {
+ //  	$scope.myMap.center = { latitude: lati, longitude: longi };
+ //  	console.log("We're in the setCenter funciton");
+ //  }
 
-	$scope.$watch($scope.user.fromLat, function () {
-  	var loc = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng)
-  	myMap.setCenter(loc)
-	})
+	// $scope.$watch(matLat, function () {
+ //  	var loc = new google.maps.LatLng(matLat, matLong)
+ //  	$scope.setCenter(loc)
+ //  	console.log("DOES THIS EVER FIRE?");
+	// })
 
   // var updateCenter = function(){
   // 	var ll = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng);

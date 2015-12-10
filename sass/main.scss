@@ -11,7 +11,10 @@ html, body {
 	margin-top: 80px;
 }
 
-.angular-google-map-container { height: 500px; }
+.angular-google-map-container { 
+	height: 500px; 
+	max-width: 800px; 
+}
 
 .navbar {
 	font-size: 1.5rem;
