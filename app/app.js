@@ -34,7 +34,7 @@ app.controller("test",
     places_changed: function (searchBox) {
     	console.log("searchBox", searchBox);
     }
-  }
+  };
   $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 
 

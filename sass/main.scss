@@ -7,7 +7,11 @@ html, body {
   height: 100%;
 }
 
-.angular-google-map-container { height: 400px; }
+#content {
+	margin-top: 80px;
+}
+
+.angular-google-map-container { height: 500px; }
 
 .navbar {
 	font-size: 1.5rem;
