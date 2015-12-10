@@ -25,9 +25,11 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 app.controller("test",
 	["$scope",
 	function($scope, $log, uiGmapGoogleMapApi) {
+    var matLat = 36.1667;
+    var matLong = -86.7833;
 
-	$scope.map = { 
-		center: { latitude: 36.1667, longitude: -86.7833 },
+	$scope.myMap = { 
+		center: { latitude: matLat, longitude: matLong },
 		zoom: 8 
 	};
 	var events = {
@@ -35,9 +37,54 @@ app.controller("test",
     	console.log("searchBox", searchBox);
     }
   };
+
   $scope.searchbox = { template:'searchbox.tpl.html', events:events};
 
 
+    $scope.user = {'from': '', 'fromLat': '', 'fromLng' : ''};
+    var options = {
+        componentRestrictions: {country: "usa"}
+    };
+    var inputFrom = document.getElementById('from');
+    var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, options);
+
+    // google.maps.event.addListener('center_changed', function(){
+    // 	console.log("SOMETHING HAPPENED");
+    // })
+
+
+  google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
+        var place = autocompleteFrom.getPlace();
+        console.log("place", place);
+        $scope.user.fromLat = place.geometry.location.lat();
+        $scope.user.fromLng = place.geometry.location.lng();
+        matLat = place.geometry.location.lat();
+        matLong = place.geometry.location.lng();
+        console.log("longitude", place.geometry.location.lng());
+        $scope.user.from = place.formatted_address;
+        console.log("place.formatted_address", place.formatted_address);
+        $scope.myMap = { 
+					center: { latitude: matLat, longitude: matLong },
+					zoom: 13
+				};
+        $scope.$digest();
+    });
+
+  
+
+	$scope.$watch($scope.user.fromLat, function () {
+  	var loc = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng)
+  	myMap.setCenter(loc)
+	})
+
+  // var updateCenter = function(){
+  // 	var ll = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng);
+  // 	$scope.myMap.panTo(ll);
+  // }
+  // $scope.$watch('user.fromLat', updateCenter);
+  // $scope.$watch('user.fromLng', updateCenter);
 
 
 }]);
+
+

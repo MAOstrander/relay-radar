@@ -41,14 +41,27 @@
   <div id="content" class="container-fluid" class="angular-google-map-container">
 
     <!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
+
     <div id="map_canvas" ng-controller="test">
+
+    <div>
+        <input id="from" type="text" ng-model="user.from" placeholder="Type Address" class="ng-pristine ng-valid" autocomplete="on">
+        <input type="hidden" ng-model="user.fromLat">
+        <input type="hidden" ng-model="user.fromLng">
+            <p>{{user.from}} <br> {{'Latitude : ' + user.fromLat + ', Longitutde : ' + user.fromLng}}</p>
+    </div>
         <script type="text/ng-template" id="searchbox.tpl.html">
             <input type="text" placeholder="Search Box">
         </script>
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_CENTER"></ui-gmap-search-box>
+        <ui-gmap-google-map ui-map="myMap" center="myMap.center" zoom="myMap.zoom" draggable="true" options="options">
+<!--             <ui-gmap-search-box template="searchbox.template" events="searchbox.events"></ui-gmap-search-box> -->
         </ui-gmap-google-map>
     </div>
+
+    <!--  <input id="pac-input" class="controls" type="text" placeholder="Search for a location" ng-model="model.searchAddress" />
+
+    <div ui-map="model.locationMap" ui-options="mapOptions" id="map_canvas" class="map"
+    style="height: 420px; width: 420px;" ui-event="{'map-click': 'setMarker($event, $params)'}"></div> -->
     
     <div ng-view></div>
       
