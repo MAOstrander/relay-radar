@@ -14,7 +14,7 @@
 <body ng-app="RelayRadar">
 
   <!-- Navigation Header at Top-->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" ng-controller="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -31,7 +31,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a>Login</a></li>
-          <li><a>What is This?</a></li>
+          <li><a href="#what">What is This?</a></li>
           <li><a>Why Log In?</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -42,7 +42,7 @@
 
     <!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
 
-    <div id="map_canvas" ng-controller="test">
+    <div id="map_canvas" ng-controller="mapController">
 
       <div>
           <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
@@ -89,8 +89,11 @@
   <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
 
   <script src="app/app.js"></script>
-
-  <script src="app/factories/factory.js"></script>
-  <!-- Controllers would go here -->
+  <!-- Factories go here -->
+  <script src="app/factories/authFactory.js"></script>
+  <script src="app/factories/fireFactory.js"></script>
+  <!-- Controllers go here -->
+  <script src="app/controllers/mapController.js"></script>
+  <script src="app/controllers/navigation.js"></script>
 </body>
 </html>

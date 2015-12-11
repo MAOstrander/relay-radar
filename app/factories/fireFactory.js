@@ -12,12 +12,14 @@ app.factory("userFactory",
     };
     function getMarkers(){
       var ref = getFirebaseRoot();
-      return $firebaseArray(ref);
+      var markerRef = ref.child("markers")
+      return $firebaseArray(markerRef);
     };
     function addMarker(data){
       var addRef = getFirebaseRoot();
-      addRef = $firebaseArray(addRef);
-      return  addRef.$add(data);
+      addMarkerRef = addRef.child("markers")
+      addMarkerRef = $firebaseArray(addMarkerRef);
+      return  addMarkerRef.$add(data);
     };
     // addData: function(data, Particular){
     //   var ref = getParticularNode(Particular);

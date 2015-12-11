@@ -1,0 +1,19 @@
+<div id="loginContent">
+
+
+	<!-- User inputs email/password for login/register -->
+	<input class="middle form-control" type="text" id="email" placeholder="Enter Email" autofocus ng-model="user.email">
+	<input class="middle form-control" type="password" id="password" placeholder="Enter Password" ng-model="user.password">
+
+
+	<!-- Chooses to login or signup, if correct, loads .main-page -->
+	<div id="loginButtons">
+	  <!-- Login -->
+	  <button class="btn btn-danger" id="login" ng-click="loginUser()">Login</button>
+
+	  <!-- Signup -->
+	  <button class="btn btn-primary" id="signupButton" ng-click="signUp()">Sign Up</button>
+
+	</div>
+
+</div>
