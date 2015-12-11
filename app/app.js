@@ -20,18 +20,51 @@ app.config(function(uiGmapGoogleMapApiProvider) {
       .otherwise('/intro');
   }]);
 
-
-
 app.controller("test",
 	["$scope",
 	function($scope, $log, uiGmapGoogleMapApi) {
     var matLat = 36.1667;
     var matLong = -86.7833;
+    var addMode;
 
-	$scope.myMap = { 
-		center: { latitude: matLat, longitude: matLong },
-		zoom: 8 
-	};
+    $scope.toggleAddMode = function(){
+    	if (addMode) {
+    		addMode = false;
+	    	console.log("no longer in add a relay mode");
+    	} else {
+    		addMode = true;
+	    	console.log("Add a relay mode");
+    	}
+    };
+
+		$scope.map = {
+	    center: {latitude: matLat, longitude: matLong },
+      zoom: 10,
+	    markers: [],
+
+      streetViewControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+
+      events: {
+        click: function (map, eventName, originalEventArgs) {
+        	if (addMode) {
+            var e = originalEventArgs[0];
+            var lat = e.latLng.lat(),lon = e.latLng.lng();
+            var marker = {
+                id: Date.now(),
+                coords: {
+                    latitude: lat,
+                    longitude: lon
+                }
+            };
+            $scope.map.markers.push(marker);
+            console.log($scope.map.markers);
+            addMode = false;
+            $scope.$apply();
+          }
+        }
+      }
+    };
 	var events = {
     places_changed: function (searchBox) {
     	console.log("searchBox", searchBox);
@@ -55,6 +88,7 @@ app.controller("test",
 
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
+        $scope.matfrom = place.formatted_address;
         console.log("place", place);
         console.log("matfrom", $scope.matfrom);
         // $scope.user.fromLat = place.geometry.location.lat();
@@ -66,7 +100,7 @@ app.controller("test",
         console.log("place.formatted_address", place.formatted_address);
         // $scope.panTo(matLat, matLong);
           // $scope.setCenter(matLat, matLong);
-        $scope.myMap = { 
+        $scope.map = { 
 					center: { latitude: matLat, longitude: matLong },
 					zoom: 13
 				};
@@ -74,7 +108,7 @@ app.controller("test",
     });
 
  //  $scope.setCenter = function(lati, longi) {
- //  	$scope.myMap.center = { latitude: lati, longitude: longi };
+ //  	$scope.map.center = { latitude: lati, longitude: longi };
  //  	console.log("We're in the setCenter funciton");
  //  }
 
@@ -86,7 +120,7 @@ app.controller("test",
 
   // var updateCenter = function(){
   // 	var ll = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng);
-  // 	$scope.myMap.panTo(ll);
+  // 	$scope.map.panTo(ll);
   // }
   // $scope.$watch('user.fromLat', updateCenter);
   // $scope.$watch('user.fromLng', updateCenter);
