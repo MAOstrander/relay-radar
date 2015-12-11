@@ -21,11 +21,12 @@ app.config(function(uiGmapGoogleMapApiProvider) {
   }]);
 
 app.controller("test",
-	["$scope",
-	function($scope, $log, uiGmapGoogleMapApi) {
+	["$scope", "userFactory",
+	function($scope, userFactory, $log, uiGmapGoogleMapApi) {
     var matLat = 36.1667;
     var matLong = -86.7833;
     var addMode;
+    console.log("userFactory", userFactory);
 
     $scope.toggleAddMode = function(){
     	if (addMode) {
@@ -40,7 +41,7 @@ app.controller("test",
 		$scope.map = {
 	    center: {latitude: matLat, longitude: matLong },
       zoom: 10,
-	    markers: [],
+	    markers: userFactory.getMarkers(),
 
       streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -58,6 +59,7 @@ app.controller("test",
                 }
             };
             $scope.map.markers.push(marker);
+            userFactory.addMarker(marker);
             console.log($scope.map.markers);
             addMode = false;
             $scope.$apply();
@@ -76,7 +78,9 @@ app.controller("test",
 
     // $scope.user = {'from': '', 'fromLat': '', 'fromLng' : ''};
     var options = {
-        componentRestrictions: {country: "usa"}
+      componentRestrictions: {country: "usa"},
+      streetViewControl: false,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var inputFrom = document.getElementById('from');
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, options);
@@ -127,5 +131,3 @@ app.controller("test",
 
 
 }]);
-
-
