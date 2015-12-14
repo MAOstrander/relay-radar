@@ -1,7 +1,6 @@
-app.factory("userFactory", 
+app.factory("fireFactory", 
 	["$firebaseAuth","$firebaseArray", "$q", function($firebaseAuth, $firebaseArray, $q) {
 		var firebaseRef = new Firebase("https://relay-radar.firebaseio.com/");
-    console.log("adfasdfadsf");
     var uid;
 
     function getFirebaseRoot() {

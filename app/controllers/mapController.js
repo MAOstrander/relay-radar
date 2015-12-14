@@ -1,10 +1,10 @@
 app.controller("mapController",
-	["$scope", "userFactory",
-	function($scope, userFactory, $log, uiGmapGoogleMapApi) {
+	["$scope", "fireFactory",
+	function($scope, fireFactory, $log, uiGmapGoogleMapApi) {
     var matLat = 36.1667;
     var matLong = -86.7833;
     var addMode;
-    console.log("userFactory", userFactory);
+    console.log("fireFactory", fireFactory);
 
     $scope.toggleAddMode = function(){
     	if (addMode) {
@@ -19,7 +19,7 @@ app.controller("mapController",
 		$scope.map = {
 	    center: {latitude: matLat, longitude: matLong },
       zoom: 10,
-	    markers: userFactory.getMarkers(),
+	    markers: fireFactory.getMarkers(),
       events: {
         click: function (map, eventName, originalEventArgs) {
         	if (addMode) {
@@ -33,7 +33,7 @@ app.controller("mapController",
                 }
             };
             $scope.map.markers.push(marker);
-            userFactory.addMarker(marker);
+            fireFactory.addMarker(marker);
             console.log($scope.map.markers);
             addMode = false;
             $scope.$apply();

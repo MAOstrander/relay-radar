@@ -3,7 +3,6 @@ app.factory("userFactory",
 		var firebaseRef = new Firebase("https://relay-radar.firebaseio.com/");
     var uid;
 
-
     function getUid(){
       return uid;
     };
@@ -11,7 +10,7 @@ app.factory("userFactory",
       uid = passedUid;
     };
 		function useAuth() {
-    return $firebaseAuth(ref);
+      return $firebaseAuth(firebaseRef);
   	};
   	function logUs(inorOut){
   		$rootScope.loggedIn = inorOut;
@@ -21,11 +20,17 @@ app.factory("userFactory",
   		return $rootScope.loggedIn;
   	};
 
+    function testery() {
+      console.log('testery')
+    }
+
   return {
     getUid: getUid,
     setUid: setUid,
     useAuth: useAuth,
-    logus: logus,
-    isLoggedIn: isLoggedIn
+    logUs: logUs,
+    isLoggedIn: isLoggedIn,
+    testery: testery
   }
+
 }]);
