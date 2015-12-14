@@ -7,6 +7,8 @@ html, body {
   height: 100%;
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 #content {
 	margin-top: 80px;
 }
@@ -16,6 +18,36 @@ html, body {
 	max-width: 800px; 
 }
 
-.navbar {
-	font-size: 1.5rem;
+.navbar-nav > * {
+	font-size: 1rem;
+	margin-left: 4em;
+	padding:15px;
+}
+
+
+#loginContent {
+	width: 80%;
+	margin: 150px auto 0;
+	text-align: center;
+}
+
+#loginContent input {
+	font-size: 2em;
+	height: auto;
+}
+
+#loginContent button {
+	margin: 0 10px;
+}
+
+#password {
+	margin: 20px 0;
+}
+
+#loginContent button {
+	font-size: 1.4em;
+}
+
+#loginButtons {
+	margin-top: 40px;
 }

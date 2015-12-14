@@ -77,11 +77,11 @@ app.controller('navigation',
     $location.path('/member').replace();
   }
 
-  $scope.open = function () {
+  $scope.loginModal = function () {
     var modalInstance = $uibModal.open({
       templateUrl: 'app/partials/loginModal.html',
       controller: 'ModalInstanceCtrl',
-      size: large,
+      size: "large",
       resolve: {
         items: function () {
           return $scope.items;
@@ -100,7 +100,7 @@ app.controller('navigation',
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $firebaseArray, Auth) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $firebaseArray, userFactory) {
 
   $scope.pins = [];
   // $scope.selected = {
@@ -108,18 +108,19 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $fireba
   // };
 
   $scope.ok = function () {
-    var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + Auth.getUid() + "/");
-    addRef = $firebaseArray(addRef)
-    addRef.$loaded().then(function(){
+    // var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + Auth.getUid() + "/");
+    // addRef = $firebaseArray(addRef)
+    // addRef.$loaded().then(function(){
       
-    console.log("addRef", addRef);
-    addRef.$add($scope.pins);
+    // console.log("addRef", addRef);
+    // addRef.$add($scope.pins);
+    // console.log("$scope.pins", $scope.pins);
+    // })
     $uibModalInstance.close($scope.pins);
-    console.log("$scope.pins", $scope.pins);
-    })
   };
 
   $scope.cancel = function () {
+    console.log("This is from the cancel function");
     $uibModalInstance.dismiss('cancel');
   };
 });
