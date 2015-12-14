@@ -1,4 +1,4 @@
-var app = angular.module("RelayRadar", ["ngRoute", "firebase", "uiGmapgoogle-maps"]);
+var app = angular.module("RelayRadar", ["ngRoute", "firebase", "uiGmapgoogle-maps", "ui.bootstrap"]);
 
 app.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({

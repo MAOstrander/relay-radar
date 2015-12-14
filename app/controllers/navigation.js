@@ -1,6 +1,6 @@
 app.controller('navigation',
-  ["$scope", "$rootScope", "$uibModal", "$log", "authFactory", "$location", 
-  function($scope, $rootScope, $uibModal, $log, authFactory, $location) {
+  ["$scope", "$rootScope", "$uibModal", "$log", "userFactory", "$location", 
+  function($scope, $rootScope, $uibModal, $log, userFactory, $location) {
 
   $scope.animationsEnabled = true;
 
