@@ -123,15 +123,15 @@ app.factory("userFactory",
 
     function getHobbyArray() {
       return hobbyArray;
-    };
+    }
 
     function getColorArray() {
       return colorArray;
-    };
+    }
 
   return {
     getHobbyArray: getHobbyArray,
     getColorArray: getColorArray
-  }
+  };
 
 }]);

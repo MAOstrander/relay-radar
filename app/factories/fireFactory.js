@@ -5,38 +5,38 @@ app.factory("fireFactory",
 
     function getFirebaseRoot() {
       return firebaseRef;
-    };
+    }
     function getParticularNode(Particular){
       return getFirebaseRoot().child(Particular);   
-    };
+    }
     function getMarkers(){
       var ref = getFirebaseRoot();
-      var markerRef = ref.child("markers")
+      var markerRef = ref.child("markers");
       return $firebaseArray(markerRef);
-    };
+    }
     function addMarker(data){
       var addRef = getFirebaseRoot();
-      addMarkerRef = addRef.child("markers")
+      addMarkerRef = addRef.child("markers");
       addMarkerRef = $firebaseArray(addMarkerRef);
       return  addMarkerRef.$add(data);
-    };
+    }
 
     function getUid(){
       return uid;
-    };
+    }
     function setUid(passedUid){
       uid = passedUid;
-    };
+    }
     function useAuth() {
       return $firebaseAuth(firebaseRef);
-    };
+    }
     function logUs(inorOut){
       $rootScope.loggedIn = inorOut;
       console.log("inorOut", inorOut);
-    };
+    }
     function isLoggedIn(){
       return $rootScope.loggedIn;
-    };
+    }
 
 
   return {
@@ -49,5 +49,5 @@ app.factory("fireFactory",
     useAuth: useAuth,
     logUs: logUs,
     isLoggedIn: isLoggedIn
-  }
+  };
 }]);

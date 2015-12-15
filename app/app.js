@@ -11,7 +11,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
     $routeProvider
       .when('/member', {
         templateUrl: 'app/partials/member.html',
-        controller: 'mapController'
+        controller: 'memberController'
       })
       .when('/intro', {
         templateUrl: 'app/partials/introduction.html',

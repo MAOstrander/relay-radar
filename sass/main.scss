@@ -9,6 +9,13 @@ html, body {
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
+pageslide {
+	background-color: $primary-color;
+}
+.sidebar-slide {
+	margin-top: 75px;
+}
+
 #content {
 	margin-top: 80px;
 }
