@@ -1,6 +1,6 @@
 app.controller("mapController",
-	["$scope", "fireFactory",
-	function($scope, fireFactory, $log, uiGmapGoogleMapApi) {
+	["$scope", "$rootScope", "fireFactory",
+	function($scope, $rootScope, fireFactory, $log, uiGmapGoogleMapApi) {
     var matLat = 36.1667;
     var matLong = -86.7833;
     var addMode;

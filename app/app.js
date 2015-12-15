@@ -10,7 +10,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
   function($routeProvider) {
     $routeProvider
       .when('/member', {
-        templateUrl: 'app/partials/login.html',
+        templateUrl: 'app/partials/member.html',
         controller: 'mapController'
       })
       .when('/intro', {

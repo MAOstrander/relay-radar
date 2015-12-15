@@ -19,23 +19,31 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+ <!--        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
+        </button> -->
         <a class="navbar-brand" href="#">Relay Radar</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div ng-if="loggedIn==false">
         <ul class="nav navbar-nav">
           <li ng-click="loginModal()">Login</li>
           <li ng-click="whatIsThis()">What is This?</li>
           <li ng-click="whatIsThis()">Why Log In?</li>
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
+      <div ng-if="loggedIn">
+        <ul class="nav navbar-nav">
+          <li ng-click="loginModal()">Friends</li>
+          <li ng-click="whatIsThis()">Messages</li>
+          <li ng-click="whatIsThis()">Profile</li>
+          <li ng-click="logOut()">Logout</li>
+        </ul>
+      </div>
     </div><!-- /.container-fluid -->
   </nav>
 
@@ -66,7 +74,7 @@
         </ui-gmap-google-map>
 
       <div>
-        <button ng-click="toggleAddMode()">Add a Relay</button> 
+        <button ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
       </div>
     </div>
 
@@ -92,8 +100,8 @@
 
   <script src="app/app.js"></script>
   <!-- Factories go here -->
-  <script src="app/factories/authFactory.js"></script>
   <script src="app/factories/fireFactory.js"></script>
+  <script src="app/factories/userFactory.js"></script>
   <!-- Controllers go here -->
   <script src="app/controllers/mapController.js"></script>
   <script src="app/controllers/navigation.js"></script>

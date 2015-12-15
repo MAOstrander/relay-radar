@@ -20,36 +20,34 @@ app.factory("fireFactory",
       addMarkerRef = $firebaseArray(addMarkerRef);
       return  addMarkerRef.$add(data);
     };
-    // addData: function(data, Particular){
-    //   var ref = getParticularNode(Particular);
-    //   return  $firebase(ref).$push(data);
-    // },
-    // getData: function(callback, Particular){
-    //   var ref = getParticularNode(Particular);
-    //   return $firebase(ref).$asArray();
-    // },
 
-  //   getUid: function(){
-  //     return uid;
-  //   },
-  //   setUid: function(passedUid){
-  //     uid = passedUid;
-  //   },
-		// useAuth: function() {
-  //   return $firebaseAuth(ref);
-  // 	},
-  // 	logUs: function(inorOut){
-  // 		$rootScope.loggedIn = inorOut;
-  // 		console.log("inorOut", inorOut);
-  // 	},
-  // 	isLoggedIn: function(){
-  // 		return $rootScope.loggedIn;
-  // 	}
+    function getUid(){
+      return uid;
+    };
+    function setUid(passedUid){
+      uid = passedUid;
+    };
+    function useAuth() {
+      return $firebaseAuth(firebaseRef);
+    };
+    function logUs(inorOut){
+      $rootScope.loggedIn = inorOut;
+      console.log("inorOut", inorOut);
+    };
+    function isLoggedIn(){
+      return $rootScope.loggedIn;
+    };
+
 
   return {
     getFirebaseRoot: getFirebaseRoot,
     getParticularNode: getParticularNode,
     getMarkers: getMarkers,
-    addMarker: addMarker
+    addMarker: addMarker,
+    getUid: getUid,
+    setUid: setUid,
+    useAuth: useAuth,
+    logUs: logUs,
+    isLoggedIn: isLoggedIn
   }
 }]);
