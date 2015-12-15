@@ -4,10 +4,34 @@ app.controller('navigation',
 
   $scope.animationsEnabled = true;
   $rootScope.loggedIn = false;
+  $rootScope.ProfileSlide = false;
+  $rootScope.messageSlide = false;
 
   $scope.whatIsThis = function(){
     window.scrollTo(200, 100);
   }
+
+      // $scope.ngslideControl = function(){
+    $scope.profileSlider = function(){
+      console.log("You clicked profile");
+      if ($rootScope.ProfileSlide) {
+        $rootScope.ProfileSlide = false;
+        console.log("Slider should close");
+      } else {
+      $rootScope.ProfileSlide = true;
+        console.log("Slider should open");
+      }
+    }
+    $scope.messageSlider = function(){
+      console.log("You clicked messages");
+      if ($rootScope.messageSlide) {
+        $rootScope.messageSlide = false;
+        console.log("Slider should close");
+      } else {
+      $rootScope.messageSlide = true;
+        console.log("Slider should open");
+      }
+    }
 
   $scope.logOut = function() {
     fireFactory.useAuth().$unauth();
@@ -97,6 +121,8 @@ app.controller('signupFormCtrl',
   $scope.favoriteColor = $scope.colorArray[0];
   $scope.favoriteHobby = $scope.hobbyArray[26];
 
+  
+
   $scope.submitSignUp = function() {
     $scope.message = null;
     $scope.error = null;
@@ -104,6 +130,7 @@ app.controller('signupFormCtrl',
       username: $scope.user.username,
       colorFave: $scope.favoriteColor.selectedColor,
       hobbyFave: $scope.favoriteHobby.selectedhobby,
+      zip: $scope.user.zip,
       email: $scope.user.email,
       password: $scope.user.password
     }
@@ -136,6 +163,7 @@ app.controller('signupFormCtrl',
           addRefObject.$loaded()
           .then(function() {
             addRefObject.username = $scope.user.username;
+            addRefObject.zip = $scope.user.zip;
             addRefObject.uid = userData.uid;
             addRefObject.colorFave = $scope.user.colorFave;
             addRefObject.hobby = $scope.user.hobbyFave;

@@ -39,8 +39,8 @@
       <div ng-if="loggedIn">
         <ul class="nav navbar-nav">
           <li ng-click="loginModal()">Friends</li>
-          <li ng-click="whatIsThis()">Messages</li>
-          <li ng-click="whatIsThis()">Profile</li>
+          <li ng-click="messageSlider()">Messages</li>
+          <li ng-click="profileSlider()">Profile</li>
           <li ng-click="logOut()">Logout</li>
         </ul>
       </div>
@@ -52,6 +52,8 @@
     <!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map> -->
 
     <div id="map_canvas" ng-controller="mapController">
+
+
 
       <div>
           <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
@@ -73,7 +75,7 @@
 
         </ui-gmap-google-map>
 
-      <div>
+      <div>        
         <button ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
       </div>
     </div>
@@ -96,6 +98,7 @@
   <script src="lib/bower_components/angular-route/angular-route.js"></script>
   <script src="lib/bower_components/firebase/firebase.js"></script>
   <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+  <script src="lib/bower_components/angular-pageslide-directive/dist/angular-pageslide-directive.min.js"></script>
   <script src="lib/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
   <script src="app/app.js"></script>
