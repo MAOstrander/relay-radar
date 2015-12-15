@@ -22,6 +22,7 @@
     "firebase": "~2.3.2",
     "angularfire": "~1.1.3",
     "angular-google-maps": "~2.2.1",
-    "angular-bootstrap": "~0.14.3"
+    "angular-bootstrap": "~0.14.3",
+    "angular-pageslide-directive": "ng-pageslide#~1.0.8"
   }
 }
