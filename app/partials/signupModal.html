@@ -1,0 +1,24 @@
+<div>
+	<!-- User inputs email/password for login/register -->
+	<input class="form-control" type="text" id="password" placeholder="Enter Username" autofocus ng-model="user.username">
+
+	<input class="form-control" type="text" id="email" placeholder="Enter Email" ng-model="user.email">
+
+	<input class="form-control" type="password" id="password" placeholder="Enter Password" ng-model="user.password">
+
+  <label for="colorFave"> Select Favorite Color: </label>
+    <select ng-model="favoriteColor" ng-options="eachColor.color for eachColor in colorArray"></select>
+
+  <label for="hobby"> Select Favorite Hobby: </label>
+	  <select ng-model="favoriteHobby" ng-options="eachHobby.hobby for eachHobby in hobbyArray"></select>
+
+
+	<div>
+	  <!-- Signup -->
+	  <button class="btn btn-primary" type="button" ng-click="submitSignUp()">Complete Sign Up</button>
+
+	  <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
+
+	</div>
+
+</div>

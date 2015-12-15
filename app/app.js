@@ -20,6 +20,3 @@ app.config(function(uiGmapGoogleMapApiProvider) {
       .otherwise('/intro');
   }]);
 
-
-//window.scrollTo(200, 100)
-
