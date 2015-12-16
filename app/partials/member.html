@@ -1,20 +1,22 @@
 <section>
 
-        <pageslide ps-side="left" ps-open="ProfileSlide">
-            <div class="sidebar-slide">
-            	<h2>Username: {{memberProfile.username}}</h2>
-            	<p>Zip: {{memberProfile.zip}}</p>
-            	<p>Favorite Color: {{memberProfile.colorFave}}</p>
-            	<p>Favorite Hobby: {{memberProfile.hobby}}</p>  
-            </div>
-        </pageslide>
+  <pageslide ps-side="left" ps-squeeze="true" ps-open="ProfileSlide">
+    <div class="sidebar-slide">
+    	<h2>Username: {{memberProfile.username}}</h2>
+    	<p>Zip: {{memberProfile.zip}}</p>
+    	<p>Favorite Color: {{memberProfile.colorFave}}</p>
+    	<p>Favorite Hobby: {{memberProfile.hobby}}</p>  
+    </div>
+  </pageslide>
 
-
-        <pageslide ps-open="messageSlide">
-            <div class="sidebar-slide">
-                
-            </div>
-        </pageslide>
+  <pageslide ps-squeeze="true" ps-open="messageSlide">
+    <div class="sidebar-slide">
+        <h2>Messages:</h2>
+        <div ng-repeat="(from, content) in memberProfile.messages" class="message-body">
+        	<span class="message-from">{{from}}: </span>{{content}}
+        </div>
+    </div>
+  </pageslide>
 
 YOU ARE NOW LOGGED IN, YAY!
 </section>

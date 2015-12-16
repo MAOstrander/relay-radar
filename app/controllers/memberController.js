@@ -7,6 +7,7 @@ app.controller("memberController",
 
     var profileRef = new Firebase("https://relay-radar.firebaseio.com/user/"+memberUid);
    	$scope.memberProfile = $firebaseObject(profileRef);
+   	
   //   profileRef.$loaded().then(function() {
 		// 	console.log("profileRef after $loaded from firebaseObject", profileRef);
 		// });

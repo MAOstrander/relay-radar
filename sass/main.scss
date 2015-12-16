@@ -10,10 +10,18 @@ html, body {
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 pageslide {
-	background-color: $primary-color;
+	background-color: #ddd;
 }
 .sidebar-slide {
 	margin-top: 75px;
+	padding: 15px;
+}
+
+.questions span {
+	font-weight: bold;
+	line-height: 1.2rem;
+	display: block;
+	margin: 5px;
 }
 
 #content {
