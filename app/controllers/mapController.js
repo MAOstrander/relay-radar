@@ -44,6 +44,7 @@ app.controller("mapController",
             var e = originalEventArgs[0];
             var lat = e.latLng.lat(),lon = e.latLng.lng();
             var marker = {
+                creator: fireFactory.getUid(),
                 id: Date.now(),
                 coords: {
                     latitude: lat,
