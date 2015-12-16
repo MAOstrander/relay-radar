@@ -1,24 +1,42 @@
 app.controller("mapController",
 	["$scope", "$rootScope", "fireFactory",
-	function($scope, $rootScope, fireFactory, $log, uiGmapGoogleMapApi) {
-    var matLat = 36.1667;
-    var matLong = -86.7833;
+	function($scope, $rootScope, fireFactory, $log, uiGmapGoogleMapApi, $location) {
+    // Nashville's latitude and longitude is: 36.1667, -86.7833
+    var matLat = 47.6509517;
+    var matLong = -122.1395801;
     var addMode;
     console.log("fireFactory", fireFactory);
 
+    //This is in order to recenter the map based on the users Geolocation upon button click
+    $scope.geolocateMe = function() {
+      console.log("GEOLOCATING! HANG ON!");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          matLat = position.coords.latitude;
+          matLong = position.coords.longitude;
+          $scope.map.center = { latitude: matLat, longitude: matLong };
+          $scope.$apply();      
+        });
+      } else {
+        console.log("GEOLOCATION NOT SUPPORTED, SORRY");
+      } 
+    };
+    //This is called in order to locate the user upon arrival
+    $scope.geolocateMe();
+
     $scope.toggleAddMode = function(){
-    	if (addMode) {
-    		addMode = false;
-	    	console.log("no longer in add a relay mode");
-    	} else {
-    		addMode = true;
-	    	console.log("Add a relay mode");
-    	}
+      if (addMode) {
+        addMode = false;
+        console.log("no longer in add a relay mode");
+      } else {
+        addMode = true;
+        console.log("Add a relay mode");
+      }
     };
 
 		$scope.map = {
-	    center: {latitude: matLat, longitude: matLong },
-      zoom: 10,
+      center: {latitude: matLat, longitude: matLong },
+      zoom: 15,
 	    markers: fireFactory.getMarkers(),
       events: {
         click: function (map, eventName, originalEventArgs) {
@@ -41,27 +59,26 @@ app.controller("mapController",
         }
       }
     };
-	var events = {
-    places_changed: function (searchBox) {
-    	console.log("searchBox", searchBox);
-    }
-  };
-
-  $scope.searchbox = { template:'searchbox.tpl.html', events:events};
-
-
-    // $scope.user = {'from': '', 'fromLat': '', 'fromLng' : ''};
     $scope.options = {
-      componentRestrictions: {country: "usa"},
+      scrollwheel: false,
       streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+  
+  $scope.searchbox = { 
+    template:'searchbox.tpl.html', 
+    events:{
+      place_changed: function (searchBox) {
+        console.log("searchBox", searchBox);
+      }
+    }
+  };
+
+    
     var inputFrom = document.getElementById('from');
+    console.log("inputFrom", inputFrom);
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, $scope.options);
 
-    // google.maps.event.addListener('center_changed', function(){
-    // 	console.log("SOMETHING HAPPENED");
-    // })
 
 
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
@@ -69,39 +86,18 @@ app.controller("mapController",
         $scope.matfrom = place.formatted_address;
         console.log("place", place);
         console.log("matfrom", $scope.matfrom);
-        // $scope.user.fromLat = place.geometry.location.lat();
-        // $scope.user.fromLng = place.geometry.location.lng();
+
         matLat = place.geometry.location.lat();
         matLong = place.geometry.location.lng();
+        console.log("latitude", place.geometry.location.lat());
         console.log("longitude", place.geometry.location.lng());
-        // $scope.user.from = place.formatted_address;
+
         console.log("place.formatted_address", place.formatted_address);
-        // $scope.panTo(matLat, matLong);
-          // $scope.setCenter(matLat, matLong);
-        $scope.map = { 
-					center: { latitude: matLat, longitude: matLong },
-					zoom: 13
-				};
-        $scope.$apply();
+
+        $scope.map.center = { latitude: matLat, longitude: matLong };
+        $scope.$digest();
     });
 
- //  $scope.setCenter = function(lati, longi) {
- //  	$scope.map.center = { latitude: lati, longitude: longi };
- //  	console.log("We're in the setCenter funciton");
- //  }
-
-	// $scope.$watch(matLat, function () {
- //  	var loc = new google.maps.LatLng(matLat, matLong)
- //  	$scope.setCenter(loc)
- //  	console.log("DOES THIS EVER FIRE?");
-	// })
-
-  // var updateCenter = function(){
-  // 	var ll = new google.maps.LatLng($scope.user.fromLat, $scope.user.fromLng);
-  // 	$scope.map.panTo(ll);
-  // }
-  // $scope.$watch('user.fromLat', updateCenter);
-  // $scope.$watch('user.fromLng', updateCenter);
 
 
 }]);
