@@ -8,7 +8,10 @@ app.controller('navigation',
   $rootScope.messageSlide = false;
 
   $scope.whatIsThis = function(){
-    window.scrollTo(200, 100);
+    window.scrollTo(0, 575);
+  };
+  $scope.whyLogin = function(){
+    window.scrollTo(0, 1000);
   };
 
   $scope.profileSlider = function(){
