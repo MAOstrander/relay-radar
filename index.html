@@ -56,10 +56,8 @@
 
 
       <div>
+          <button class="btn" ng-click="geolocateMe()">GeoLocate Me</button>
           <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
-  <!--         <input type="hidden" ng-model="user.fromLat">
-          <input type="hidden" ng-model="user.fromLng">
-              <p>{{user.from}} <br> {{'Latitude : ' + user.fromLat + ', Longitutde : ' + user.fromLng}}</p> -->
       </div>
       <script type="text/ng-template" id="searchbox.tpl.html">
           <input type="text" placeholder="Search Box">
@@ -76,7 +74,6 @@
         </ui-gmap-google-map>
 
       <div>
-      <button class="btn" ng-click="geolocateMe()">GeoLocate Me</button>
         <button class="btn" ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
       </div>
     </div>

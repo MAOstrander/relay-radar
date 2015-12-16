@@ -14,9 +14,7 @@ app.config(function(uiGmapGoogleMapApiProvider) {
         controller: 'memberController'
       })
       .when('/intro', {
-        templateUrl: 'app/partials/introduction.html',
-        controller: 'mapController'
+        templateUrl: 'app/partials/introduction.html'
       })
       .otherwise('/intro');
   }]);
-
