@@ -13,9 +13,9 @@
 	    	<p>3DS Friendcode: {{memberProfile.fcode}}</p>
 	    	<div>
 		    	StreetPass Games:
-		 <!--    	<ul>
-		    		<li ng-repeat="game in memberProfile.games">{{game}}</li>
-		    	</ul> -->
+		    	<ul>
+		    		<li ng-repeat="game in memberProfile.myGames">{{game}}</li>
+		    	</ul>
 	    	</div>
 	    	<div>
 		    	3DS Achievements:
@@ -47,11 +47,9 @@
 	    	<input  type="text" placeholder="Enter Friendcode" ng-model="memberProfile.fcode">
 
 	    	Which StreetPass Games do you play?
-	    	<!-- <p ng-repeat="games in gameArray">{{games}}</p> -->
 	    	<label ng-repeat="games in gameArray">
-        	<input type='checkbox' ng-model='gameChecked.games'>{{games}} : {{gameChecked.games}}
-      	{{gameChecked}}
-      	</label>
+				  <input type="checkbox" checklist-model="memberProfile.myGames" checklist-value="games"> {{games}}
+				</label>
 
 	    	What 3DS Achievements have you unlocked?
 	    	<label>THERE ARE SO MANY:

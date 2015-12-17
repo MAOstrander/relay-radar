@@ -17,7 +17,6 @@ app.controller("memberController",
  		$scope.gameArray = userFactory.getGameArray();
  		console.log("$scope.gameArray", $scope.gameArray);
 
- 		$scope.gamesChecked;
 
    	$scope.toggleEditMode = function(){
       if ($scope.editMode) {
@@ -31,18 +30,6 @@ app.controller("memberController",
       }
     };
 
-  //   profileRef.$loaded().then(function() {
-		// 	console.log("profileRef after $loaded from firebaseObject", profileRef);
-		// });
-
-		// var testiest = fireFactory.getParticularNode($scope.memberUid);
-		// console.log("testiest from fireFactory", testiest);
-		// testiest = $firebaseObject(testiest);
-		// console.log("testiest after firebaseObject", testiest);
-
-		// testiest.$loaded().then(function() {
-		// 	console.log("testiest after $loaded from firebaseObject", testiest);
-		// });
 
 
 }]);
