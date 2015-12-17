@@ -108,14 +108,6 @@ app.controller("mapController",
 
         console.log("place.formatted_address", place.formatted_address);
 
-  //So far this code does nothing new (it is redundant).
-  var geocoder = new google.maps.Geocoder();
-  geocoder.geocode( { "address": $scope.matfrom }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
-          var newPlaceAddress = results[0].geometry.location;
-          console.log("location", newPlaceAddress.lat());
-      }
-  });
         $scope.map.center = { latitude: matLat, longitude: matLong };
         $scope.$digest();
     });
