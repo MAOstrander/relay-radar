@@ -1,127 +1,35 @@
 app.factory("userFactory", 
 	["$firebaseAuth","$firebaseArray", "$q", function($firebaseAuth, $firebaseArray, $q) {
-		var colorArray  = [{
-      color: 'Red',
-      selectedColor: 'red'
-    }, {
-      color: 'Orange',
-      selectedColor: 'orange'
-    }, {
-      color: 'Yellow',
-      selectedColor: 'yellow'
-    }, {
-      color: 'Light Green',
-      selectedColor: 'lightGreen'
-    }, {
-      color: 'Green',
-      selectedColor: 'green'
-    }, {
-      color: 'Blue',
-      selectedColor: 'blue'
-    }, {
-      color: 'Light Blue',
-      selectedColor: 'lightBlue'
-    }, {
-      color: 'Pink',
-      selectedColor: 'pink'
-    }, {
-      color: 'Purple',
-      selectedColor: 'purple'
-    }, {
-      color: 'Brown',
-      selectedColor: 'brown'
-    }, {
-      color: 'White',
-      selectedColor: 'white'
-    }, {
-      color: 'Black',
-      selectedColor: 'black'
-    }];
+		var colorArray  = ['Red', 'Orange', 'Yellow', 'Light Green', 'Green', 'Blue',
+     'Light Blue', 'Pink', 'Purple', 'Brown', 'White', 'Black'];
 
-    var hobbyArray  = [{
-      hobby: 'Eating Well',
-      selectedhobby: 'eating'
-    }, {
-      hobby: 'Sleeping',
-      selectedhobby: 'sleeping'
-    }, {
-      hobby: 'Chatting',
-      selectedhobby: 'chatting'
-    }, {
-      hobby: 'Partying',
-      selectedhobby: 'partying'
-    }, {
-      hobby: 'Fashion',
-      selectedhobby: 'fashion'
-    }, {
-      hobby: 'Shopping',
-      selectedhobby: 'shopping'
-    }, {
-      hobby: 'Helping Others',
-      selectedhobby: 'helping'
-    }, {
-      hobby: 'Studying',
-      selectedhobby: 'studying'
-    }, {
-      hobby: 'Earning Money',
-      selectedhobby: 'money'
-    }, {
-      hobby: 'Cooking',
-      selectedhobby: 'cooking'
-    }, {
-      hobby: 'Cleaning',
-      selectedhobby: 'cleaning'
-    }, {
-      hobby: 'Playing Video Games',
-      selectedhobby: 'games'
-    }, {
-      hobby: 'Using the Internet',
-      selectedhobby: 'internet'
-    }, {
-      hobby: 'Listening to Music',
-      selectedhobby: 'music'
-    }, {
-      hobby: 'Watching Movies',
-      selectedhobby: 'movies'
-    }, {
-      hobby: 'Reading',
-      selectedhobby: 'reading'
-    }, {
-      hobby: 'Driving',
-      selectedhobby: 'driving'
-    }, {
-      hobby: 'Playing Sports',
-      selectedhobby: 'sports'
-    }, {
-      hobby: 'The Outdoors',
-      selectedhobby: 'outdoors'
-    }, {
-      hobby: 'Traveling',
-      selectedhobby: 'traveling'
-    }, {
-      hobby: 'Fishing',
-      selectedhobby: 'fishing'
-    }, {
-      hobby: 'Taking Photos',
-      selectedhobby: 'photos'
-    }, {
-      hobby: 'Drawing',
-      selectedhobby: 'drawing'
-    }, {
-      hobby: 'Keeping Pets',
-      selectedhobby: 'pets'
-    }, {
-      hobby: 'Dancing',
-      selectedhobby: 'dancing'
-    }, {
-      hobby: 'Secret',
-      selectedhobby: 'secret'
-    }, {
-      hobby: 'Other',
-      selectedhobby: 'other'
-    }];
+    var hobbyArray  = ['Eating Well', 'Sleeping', 'Chatting', 'Partying', 'Fashion',
+     'Shopping', 'Helping Others', 'Studying', 'Earning Money', 'Cooking',
+      'Cleaning', 'Playing Video Games', 'Using the Internet', 'Listening to Music',
+      'Watching Movies', 'Reading', 'Driving', 'Playing Sports', 'The Outdoors',
+      'Traveling', 'Fishing', 'Taking Photos', 'Drawing', 'Keeping Pets',
+      'Dancing', 'Secret', 'Other'];
 
-    function getHobbyArray() {
+    var dayArray = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+
+    var monthArray = [1,2,3,4,5,6,7,8,9,10,11,12];
+
+    var gameArray = ["Puzzle Swap", "Find Mii", 
+      "Mii Force", "Flower Town", "Warriors Way", "Monster Manor",
+      "Ultimate Angler", "Battleground Z", "Pokemon", "Fire Emblem", 
+      "Smash Brothers", "Link Between Worlds", "Animal Crossing", "Bravely Default"];
+
+
+    function getGameArray() {
+      return gameArray;
+    }
+    function getDayArray() {
+      return dayArray;
+    }
+    function getMonthArray() {
+      return monthArray;
+    }
+      function getHobbyArray() {
       return hobbyArray;
     }
 
@@ -130,6 +38,9 @@ app.factory("userFactory",
     }
 
   return {
+    getGameArray: getGameArray,
+    getDayArray: getDayArray,
+    getMonthArray: getMonthArray,
     getHobbyArray: getHobbyArray,
     getColorArray: getColorArray
   };

@@ -12,27 +12,19 @@ app.controller("memberController",
 
 		$scope.hobbyArray = userFactory.getHobbyArray();
 		$scope.colorArray = userFactory.getColorArray();
-		$scope.favoriteColor = $scope.colorArray[0];
- 		$scope.favoriteHobby = $scope.hobbyArray[26];
+ 		$scope.dayArray = userFactory.getDayArray();
+ 		$scope.monthArray = userFactory.getMonthArray();
+ 		$scope.gameArray = userFactory.getGameArray();
+ 		console.log("$scope.gameArray", $scope.gameArray);
 
-
-      $scope.editUser = {
-      // zip: $scope.memberProfile.zip,
-      colorFave: $scope.favoriteColor.selectedColor,
-      hobbyFave: $scope.favoriteHobby.selectedhobby,
-    //   Gender: 'a',
-	   //  Birthday: 'a',
-	   //  Friendcode: 'a',
-	   //  Games: 'a',
-		  // Records: 'a'
-    };
-
+ 		$scope.gamesChecked;
 
    	$scope.toggleEditMode = function(){
       if ($scope.editMode) {
         $scope.editMode = false;
         console.log("no longer in edit Profile mode");
-        console.log("editUser", $scope.memberProfile);
+        console.log("gamesChecked", $scope.gameChecked);
+        $scope.memberProfile.$save();
       } else {
         $scope.editMode = true;
         console.log("Edit Profile mode");

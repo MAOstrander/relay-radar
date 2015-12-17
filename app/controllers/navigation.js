@@ -130,8 +130,8 @@ app.controller('signupFormCtrl',
     $scope.error = null;
     $scope.user = {
       username: $scope.user.username,
-      colorFave: $scope.favoriteColor.selectedColor,
-      hobbyFave: $scope.favoriteHobby.selectedhobby,
+      colorFave: $scope.favoriteColor,
+      hobbyFave: $scope.favoriteHobby,
       zip: $scope.user.zip,
       email: $scope.user.email,
       password: $scope.user.password

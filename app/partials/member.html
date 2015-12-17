@@ -9,13 +9,13 @@
 	    	<p>Favorite Color: {{memberProfile.colorFave}}</p>
 	    	<p>Favorite Hobby: {{memberProfile.hobby}}</p>
 	    	<p>Gender: {{memberProfile.gender}}</p>
-	    	<p>Birthday: {{memberProfile.bday}}</p>
+	    	<p>Birthday: {{memberProfile.months}} / {{memberProfile.days}}</p>
 	    	<p>3DS Friendcode: {{memberProfile.fcode}}</p>
 	    	<div>
 		    	StreetPass Games:
-		    	<ul>
+		 <!--    	<ul>
 		    		<li ng-repeat="game in memberProfile.games">{{game}}</li>
-		    	</ul>
+		    	</ul> -->
 	    	</div>
 	    	<div>
 		    	3DS Achievements:
@@ -29,9 +29,9 @@
 
 	    	<input  type="text" placeholder="Enter Zipcode" ng-model="memberProfile.zip" required>
 
-	    	<select ng-model="favoriteColor" ng-options="eachColor.color for eachColor in colorArray"></select>
+	    	<select ng-model="memberProfile.colorFave" ng-options="color for color in colorArray"></select>
 
-	    	<select ng-model="favoriteHobby" ng-options="eachHobby.hobby for eachHobby in hobbyArray"></select>
+	    	<select ng-model="memberProfile.hobby" ng-options="hobby for hobby in hobbyArray"></select>
     	  <label>
 
 			    <input type="radio" ng-model="memberProfile.gender" value="Female">
@@ -42,17 +42,16 @@
 			    Male
 			  </label>
 
-			  Birthday: {{memberProfile.bday}}
+			  Birthday: <select ng-model="memberProfile.months" ng-options="month for month in monthArray"></select> / <select ng-model="memberProfile.days" ng-options="day for day in dayArray"></select> 
 
 	    	<input  type="text" placeholder="Enter Friendcode" ng-model="memberProfile.fcode">
 
-	    	Which Mii Plaza Games do you play?
-	    	<label>Find Mii:
-			    <input type="checkbox" ng-model="memberProfile.games.findMii">
-			  </label>
-			  <label>Puzzle Swap:
-			    <input type="checkbox" ng-model="memberProfile.games.puzzleSwap">
-			  </label>
+	    	Which StreetPass Games do you play?
+	    	<!-- <p ng-repeat="games in gameArray">{{games}}</p> -->
+	    	<label ng-repeat="games in gameArray">
+        	<input type='checkbox' ng-model='gameChecked.games'>{{games}} : {{gameChecked.games}}
+      	{{gameChecked}}
+      	</label>
 
 	    	What 3DS Achievements have you unlocked?
 	    	<label>THERE ARE SO MANY:

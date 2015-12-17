@@ -9,10 +9,10 @@
 		<input class="form-control" type="text" id="zip" placeholder="Enter Zipcode" ng-model="user.zip" required>
 
 	  <label for="colorFave"> Select Favorite Color: </label>
-	    <select ng-model="favoriteColor" ng-options="eachColor.color for eachColor in colorArray"></select>
+	    <select ng-model="favoriteColor" ng-options="color for color in colorArray"></select>
 
 	  <label for="hobby"> Select Favorite Hobby: </label>
-		  <select ng-model="favoriteHobby" ng-options="eachHobby.hobby for eachHobby in hobbyArray"></select>
+		  <select ng-model="favoriteHobby" ng-options="hobby for hobby in hobbyArray"></select>
 	</form>
 
 
