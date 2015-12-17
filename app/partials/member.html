@@ -27,37 +27,39 @@
     	<div ng-if="editMode">
 	    	<button class="btn" ng-click="toggleEditMode()">Save Changes</button>
 
-	    	<input  type="text" placeholder="Enter Zipcode" ng-model="editProfileInfo.zip" required>
+	    	<input  type="text" placeholder="Enter Zipcode" ng-model="memberProfile.zip" required>
 
 	    	<select ng-model="favoriteColor" ng-options="eachColor.color for eachColor in colorArray"></select>
 
 	    	<select ng-model="favoriteHobby" ng-options="eachHobby.hobby for eachHobby in hobbyArray"></select>
     	  <label>
 
-			    <input type="radio" ng-model="editProfileInfo.gender" value="Female">
+			    <input type="radio" ng-model="memberProfile.gender" value="Female">
 			    Female
 			  </label>
 			  <label>
-			    <input type="radio" ng-model="editProfileInfo.gender" value="Male">
+			    <input type="radio" ng-model="memberProfile.gender" value="Male">
 			    Male
 			  </label>
 
-	    	<input  type="text" placeholder="Enter Friendcode" ng-model="editProfileInfo.fcode">
+			  Birthday: {{memberProfile.bday}}
+
+	    	<input  type="text" placeholder="Enter Friendcode" ng-model="memberProfile.fcode">
 
 	    	Which Mii Plaza Games do you play?
 	    	<label>Find Mii:
-			    <input type="checkbox" ng-model="editProfileInfo.games.findMii">
+			    <input type="checkbox" ng-model="memberProfile.games.findMii">
 			  </label>
 			  <label>Puzzle Swap:
-			    <input type="checkbox" ng-model="editProfileInfo.games.puzzleSwap">
+			    <input type="checkbox" ng-model="memberProfile.games.puzzleSwap">
 			  </label>
 
 	    	What 3DS Achievements have you unlocked?
 	    	<label>THERE ARE SO MANY:
-			    <input type="checkbox" ng-model="editProfileInfo.records.thing">
+			    <input type="checkbox" ng-model="memberProfile.records.thing">
 			  </label>
 			  <label>OH MY:
-			    <input type="checkbox" ng-model="editProfileInfo.records.that">
+			    <input type="checkbox" ng-model="memberProfile.records.that">
 			  </label>
     	</div>
     </div>
