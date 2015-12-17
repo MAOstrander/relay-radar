@@ -5,6 +5,7 @@ app.controller("mapController",
     var matLat = 47.6509517;
     var matLong = -122.1395801;
     var addMode;
+    $scope.matfrom;
     console.log("fireFactory", fireFactory);
 
     //This is in order to recenter the map based on the users Geolocation upon button click
@@ -81,12 +82,24 @@ app.controller("mapController",
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, $scope.options);
 
 
+    $scope.addSearch = function(){
+      var addressMarker = {
+          creator: fireFactory.getUid(),
+          id: Date.now(),
+          coords: {
+            latitude: matLat,
+            longitude: matLong
+          }
+        };
+        $scope.map.markers.push(addressMarker);
+        fireFactory.addMarker(addressMarker);
+        console.log($scope.map.markers);
+    }
 
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
         $scope.matfrom = place.formatted_address;
         console.log("place", place);
-        console.log("matfrom", $scope.matfrom);
 
         matLat = place.geometry.location.lat();
         matLong = place.geometry.location.lng();
@@ -95,9 +108,19 @@ app.controller("mapController",
 
         console.log("place.formatted_address", place.formatted_address);
 
+  //So far this code does nothing new (it is redundant).
+  var geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { "address": $scope.matfrom }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+          var newPlaceAddress = results[0].geometry.location;
+          console.log("location", newPlaceAddress.lat());
+      }
+  });
         $scope.map.center = { latitude: matLat, longitude: matLong };
         $scope.$digest();
     });
+
+
 
 
 

@@ -54,6 +54,7 @@
       <div>
           <button class="btn" ng-click="geolocateMe()">GeoLocate Me</button>
           <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
+          <button class="btn" ng-click="addSearch()" ng-show="loggedIn && matfrom">Save a Marker at this Address?</button> 
       </div>
       <script type="text/ng-template" id="searchbox.tpl.html">
           <input type="text" placeholder="Search Box">
@@ -65,8 +66,12 @@
           options="options"
           events="map.events">
 
-          <ui-gmap-marker ng-repeat="m in map.markers" coords="m.coords" icon="m.icon" idKey="m.id"></ui-gmap-marker>
-
+          <ui-gmap-marker 
+            ng-repeat="m in map.markers" 
+            coords="m.coords" 
+            icon="m.icon" 
+            idKey="m.id">
+          </ui-gmap-marker>
         </ui-gmap-google-map>
 
       <div>
