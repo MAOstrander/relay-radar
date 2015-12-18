@@ -71,5 +71,37 @@
     </div>
   </pageslide>
 
-YOU ARE NOW LOGGED IN, YAY!
+	<section>
+		<h2>Friends</h2>
+		<div>
+			<button class="btn">Sort</button>
+			<button class="btn">Pending</button>
+			<button class="btn">New</button>
+		</div>
+		<div id="current-friends">
+			This will be the list of confirmed friends
+		</div>
+		<div id="pending-friends">
+			This will be pending friends
+			
+		</div>
+		<div id="find-friends">
+			<div ng-repeat="member in allUsers">
+				<button class="btn" ng-click="addFriend(member)">Add?</button>
+				<h4>Username: {{member.username}}</h4>
+	    	<p>Zip: {{member.zip}}</p>
+	    	<p>Favorite Color: {{member.colorFave}}</p>
+	    	<p>Favorite Hobby: {{member.hobby}}</p>
+	    	<p>Gender: {{member.gender}}</p>
+	    	<p>Birthday: {{member.months}} / {{member.days}}</p>
+	    	<p>3DS Friendcode: {{member.fcode}}</p>
+	    	<div>
+		    	StreetPass Games:
+		    	<ul>
+		    		<li ng-repeat="game in member.myGames">{{game}}</li>
+		    	</ul>
+	    	</div>
+			</div>
+		</div> <!-- End of find friends section -->
+	</section>
 </section>
