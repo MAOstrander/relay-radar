@@ -5,7 +5,7 @@ app.controller("mapController",
     var matLat = 47.6509517;
     var matLong = -122.1395801;
     var addMode;
-    $scope.matfrom;
+    $scope.matfrom = '';
     console.log("fireFactory", fireFactory);
 
     //This is in order to recenter the map based on the users Geolocation upon button click
@@ -94,7 +94,7 @@ app.controller("mapController",
         $scope.map.markers.push(addressMarker);
         fireFactory.addMarker(addressMarker);
         console.log($scope.map.markers);
-    }
+    };
 
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
@@ -109,6 +109,7 @@ app.controller("mapController",
         console.log("place.formatted_address", place.formatted_address);
 
         $scope.map.center = { latitude: matLat, longitude: matLong };
+        $scope.map.zoom = 18;
         $scope.$digest();
     });
 

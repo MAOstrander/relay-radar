@@ -4,6 +4,7 @@ app.controller('navigation',
 
   $scope.animationsEnabled = true;
   $rootScope.loggedIn = false;
+  $rootScope.friendDash = false;
   $rootScope.ProfileSlide = false;
   $rootScope.messageSlide = false;
 
@@ -12,6 +13,14 @@ app.controller('navigation',
   };
   $scope.whyLogin = function(){
     window.scrollTo(0, 1000);
+  };
+
+  $scope.friendDashboard = function(){
+    if ($scope.friendDash) {
+      $rootScope.friendDash = false;
+    } else {
+      $rootScope.friendDash = true;
+    }
   };
 
   $scope.profileSlider = function(){
@@ -169,6 +178,7 @@ app.controller('signupFormCtrl',
             addRefObject.uid = userData.uid;
             addRefObject.colorFave = $scope.user.colorFave;
             addRefObject.hobby = $scope.user.hobbyFave;
+            addRefObject.friendsList = {defaultFriend: userData.uid};
             //Save the profile info from user into firebase
             addRefObject.$save();
           }) 
