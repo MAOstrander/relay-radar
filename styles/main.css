@@ -1,10 +1,19 @@
 html, body {
   font: 100% Helvetica, sans-serif;
   color: #333;
-  height: 100%; }
+  height: 100%;
+  background-color: #6b88fe; }
 
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
+
+nav.navbar {
+  background-image: url("../app/images/Small-Block.gif");
+  background-size: auto 100%; }
+
+a.navbar-brand, .navbar-nav > li {
+  background-image: url("../app/images/EmptyBlockFlat.gif");
+  background-size: 100% 100%; }
 
 pageslide {
   background-color: #ddd; }
