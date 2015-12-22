@@ -9,15 +9,15 @@
 		<input class="form-control" type="text" id="zip" placeholder="Enter Zipcode" ng-model="user.zip" required>
 
 	  <label for="colorFave"> Select Favorite Color: </label>
-	    <select ng-model="favoriteColor" ng-options="color for color in colorArray"></select>
+	    <select ng-model="favoriteColor" class="selectpicker" ng-options="color for color in colorArray"></select>
 
 	  <label for="hobby"> Select Favorite Hobby: </label>
-		  <select ng-model="favoriteHobby" ng-options="hobby for hobby in hobbyArray"></select>
+		  <select ng-model="favoriteHobby"  class="selectpicker" ng-options="hobby for hobby in hobbyArray"></select>
 	</form>
 
 
 	<div class="controlButtons">
-	
+
 	  <!-- Signup -->
 	  <button class="btn btn-primary" type="button" id="ready-go" ng-click="submitSignUp()" ng-disabled="signUpForm.$invalid">Complete Sign Up</button>
 

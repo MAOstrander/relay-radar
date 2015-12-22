@@ -73,4 +73,11 @@ pageslide {
 .controlButtons {
   margin: 20px 0 20px 0; }
 
+form label {
+  display: block;
+  margin: 10px; }
+
+select {
+  width: 100%; }
+
 /*# sourceMappingURL=main.css.map */
