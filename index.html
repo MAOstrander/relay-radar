@@ -53,13 +53,8 @@
 
       <div >
         <img src="app/images/CloudLocate.gif" ng-click="geolocateMe()" class="cloud">
-        <!-- <button class="btn" >GeoLocate Me</button> -->
-      <!-- </div> -->
-      <!-- <div class="cloud"> -->
         <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
-      <!-- </div> -->
-      <!-- <div class="cloud"> -->
-        <button ng-click="addSearch()" ng-show="loggedIn && matfrom">Save a Marker at this Address?</button> 
+        <img src="app/images/CloudSaveAddress.gif" ng-click="addSearch()" ng-show="loggedIn && matfrom" class="cloud">
       </div>
       <script type="text/ng-template" id="searchbox.tpl.html">
           <input type="text" placeholder="Search Box">
@@ -82,7 +77,7 @@
       </div>
 
       <div>
-        <button class="btn cloud" ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
+        <img src="app/images/CloudSaveAddress.gif" ng-click="toggleAddMode()" ng-show="loggedIn" class="cloud">
       </div>
     </div>
     
