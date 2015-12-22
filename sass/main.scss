@@ -8,7 +8,7 @@ html, body {
   background-color: #6b88fe;
 }
 
-.nav, .pagination, .carousel, .panel-title a, .cloud { cursor: pointer; }
+.nav, .pagination, .carousel, .panel-title a, .cloud, #signupButton { cursor: pointer; }
 
 nav.navbar {
 	background-image: url("../app/images/Small-Block.gif");
@@ -24,8 +24,6 @@ div#mapframe {
 	background-size: 100% 100%;
 	padding: 50px;
 }
-// img.cloud {
-// }
 
 pageslide {
 	background-color: #ddd;
@@ -63,20 +61,20 @@ pageslide {
  background-color: #0080ff;
 }
 
-#loginContent {
+.loginContent {
 	background-color: #0080ff;
 	width: 80%;
 	margin: 20px auto 0;
 	text-align: center;
 }
 
-#loginContent input {
+.loginContent input, form input {
 	font-size: 2em;
 	height: auto;
 	margin-top: 20px;
 }
 
-#loginContent button {
+.loginContent button {
 	margin: 0 10px;
 }
 
@@ -84,11 +82,11 @@ pageslide {
 	margin: 20px 0;
 }
 
-#loginContent button {
+.loginContent button {
 	width: 45%;
 	font-size: 1.4em;
 }
 
-#loginButtons {
+.controlButtons {
 	margin: 20px 0 20px 0;
 }

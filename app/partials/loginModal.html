@@ -1,20 +1,18 @@
-<div id="loginContent">
+<div class="loginContent">
 
 
-	<!-- User inputs email/password for login/register -->
-	<img src="../app/images/SignupPipe.gif" ng-click="signUp()">
+	<!-- Signup -->
+	<img src="../app/images/SignupPipe.gif" id="signupButton" ng-click="signUp()">
+
+	<!-- User inputs email/password for login -->
 	<input class="middle form-control" type="text" id="email" placeholder="Enter Email" autofocus ng-model="user.email">
 	<input class="middle form-control" type="password" id="password" placeholder="Enter Password" ng-model="user.password">
 
-
-	<!-- Chooses to login or signup, if correct, loads .main-page -->
-	<div id="loginButtons">
+	<div class="controlButtons">
 	  <!-- Login -->
 	  <button class="btn btn-primary" id="login" ng-click="loginUser()">Login</button>
 
-	  <!-- Signup -->
-	  <!-- <button class="btn btn-default" id="signupButton" >Sign Up</button> -->
-
+	  <!-- Cancel -->
 	  <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
 
 	</div>
