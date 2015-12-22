@@ -66,16 +66,6 @@ app.controller("mapController",
       streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-  
-  $scope.searchbox = { 
-    template:'searchbox.tpl.html', 
-    events:{
-      place_changed: function (searchBox) {
-        console.log("searchBox", searchBox);
-      }
-    }
-  };
-
     
     var inputFrom = document.getElementById('from');
     console.log("inputFrom", inputFrom);

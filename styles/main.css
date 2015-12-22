@@ -46,14 +46,19 @@ pageslide {
   margin-left: 4em;
   padding: 15px; }
 
+.modal-content {
+  background-color: #0080ff; }
+
 #loginContent {
+  background-color: #0080ff;
   width: 80%;
-  margin: 150px auto 0;
+  margin: 20px auto 0;
   text-align: center; }
 
 #loginContent input {
   font-size: 2em;
-  height: auto; }
+  height: auto;
+  margin-top: 20px; }
 
 #loginContent button {
   margin: 0 10px; }
@@ -62,9 +67,10 @@ pageslide {
   margin: 20px 0; }
 
 #loginContent button {
+  width: 45%;
   font-size: 1.4em; }
 
 #loginButtons {
-  margin-top: 40px; }
+  margin: 20px 0 20px 0; }
 
 /*# sourceMappingURL=main.css.map */
