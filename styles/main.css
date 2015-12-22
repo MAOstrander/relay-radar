@@ -4,7 +4,7 @@ html, body {
   height: 100%;
   background-color: #6b88fe; }
 
-.nav, .pagination, .carousel, .panel-title a {
+.nav, .pagination, .carousel, .panel-title a, .cloud {
   cursor: pointer; }
 
 nav.navbar {
@@ -14,6 +14,11 @@ nav.navbar {
 a.navbar-brand, .navbar-nav > li {
   background-image: url("../app/images/EmptyBlockFlat.gif");
   background-size: 100% 100%; }
+
+div#mapframe {
+  background-image: url("../app/images/TitleMenuFrame.jpg");
+  background-size: 100% 100%;
+  padding: 50px; }
 
 pageslide {
   background-color: #ddd; }
@@ -33,7 +38,8 @@ pageslide {
 
 .angular-google-map-container {
   height: 500px;
-  max-width: 800px; }
+  margin-left: auto;
+  margin-right: auto; }
 
 .navbar-nav > * {
   font-size: 1rem;

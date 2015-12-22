@@ -51,14 +51,20 @@
 
     <div ng-controller="mapController">
 
-      <div>
-          <button class="btn" ng-click="geolocateMe()">GeoLocate Me</button>
-          <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
-          <button class="btn" ng-click="addSearch()" ng-show="loggedIn && matfrom">Save a Marker at this Address?</button> 
+      <div >
+        <img src="app/images/CloudLocate.gif" ng-click="geolocateMe()" class="cloud">
+        <!-- <button class="btn" >GeoLocate Me</button> -->
+      <!-- </div> -->
+      <!-- <div class="cloud"> -->
+        <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
+      <!-- </div> -->
+      <!-- <div class="cloud"> -->
+        <button ng-click="addSearch()" ng-show="loggedIn && matfrom">Save a Marker at this Address?</button> 
       </div>
       <script type="text/ng-template" id="searchbox.tpl.html">
           <input type="text" placeholder="Search Box">
       </script>
+      <div id="mapframe">
         <ui-gmap-google-map  
           center="map.center" 
           zoom="map.zoom" 
@@ -73,9 +79,10 @@
             idKey="m.id">
           </ui-gmap-marker>
         </ui-gmap-google-map>
+      </div>
 
       <div>
-        <button class="btn" ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
+        <button class="btn cloud" ng-click="toggleAddMode()" ng-show="loggedIn">Add a Relay</button> 
       </div>
     </div>
     
