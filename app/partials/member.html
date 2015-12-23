@@ -78,16 +78,22 @@
 			<button class="btn" ng-click="showAll()">All Users</button>
 		</div>
 		<div ng-show="friends==='current'" id="current-friends">
-				<div ng-repeat="member in allUsers | filter:searchBy()">
-				<h4>Username: {{member.username}}</h4>
-	    	<p>Zip: {{member.zip}}</p>
-	    	<p>Favorite Color: {{member.colorFave}}</p>
-	    	<p>Favorite Hobby: {{member.hobby}}</p>
-	    	<p>Gender: {{member.gender}}</p>
-	    	<p>Birthday: {{member.months}} / {{member.days}}</p>
-	    	<p>3DS Friendcode: {{member.fcode}}</p>
-	    	<div>
-		    	StreetPass Games:
+			<div class="other-members" ng-repeat="member in allUsers | filter:searchBy()">
+				<div class="add-friend-div">
+					<h3>{{member.username}}</h3>
+					<div class="other-right">
+			    	<p><span>Zip:</span> {{member.zip}}</p>
+			    	<p ng-if="member.fcode"><span>3DS Friendcode:</span> {{member.fcode}}</p>
+					</div>
+				</div>
+				<div class="add-friend-div">
+		    	<p><span>Favorite Color:</span> {{member.colorFave}}</p>
+		    	<p><span>Favorite Hobby:</span> {{member.hobby}}</p>
+		    	<p ng-if="member.gender"><span>Gender:</span> {{member.gender}}</p>
+		    	<p ng-if="member.months"><span>Birthday:</span> {{member.months}} / {{member.days}}</p>
+				</div>
+	    	<div ng-if="member.myGames" class="add-friend-div">
+		    	<span>StreetPass Games:</span>
 		    	<ul>
 		    		<li ng-repeat="game in member.myGames">{{game}}</li>
 		    	</ul>
@@ -95,17 +101,23 @@
 			</div>
 		</div>
 		<div ng-show="friends==='find'" id="find-friends">
-			<div ng-repeat="member in allUsers | filter:notFriends()">
-				<button class="btn" ng-click="addFriend(member)">Add?</button>
-				<h4>Username: {{member.username}}</h4>
-	    	<p>Zip: {{member.zip}}</p>
-	    	<p>Favorite Color: {{member.colorFave}}</p>
-	    	<p>Favorite Hobby: {{member.hobby}}</p>
-	    	<p>Gender: {{member.gender}}</p>
-	    	<p>Birthday: {{member.months}} / {{member.days}}</p>
-	    	<p>3DS Friendcode: {{member.fcode}}</p>
-	    	<div>
-		    	StreetPass Games:
+			<div class="other-members" ng-repeat="member in allUsers | filter:notFriends()">
+				<button class="btn btn-addfriend" ng-click="addFriend(member)">Friend+</button>
+				<div class="add-friend-div">
+					<h3>{{member.username}}</h3>
+					<div class="other-right">
+			    	<p><span>Zip:</span> {{member.zip}}</p>
+			    	<p ng-if="member.fcode"><span>3DS Friendcode:</span> {{member.fcode}}</p>
+					</div>
+				</div>
+				<div class="add-friend-div">
+		    	<p><span>Favorite Color:</span> {{member.colorFave}}</p>
+		    	<p><span>Favorite Hobby:</span> {{member.hobby}}</p>
+		    	<p ng-if="member.gender"><span>Gender:</span> {{member.gender}}</p>
+		    	<p ng-if="member.months"><span>Birthday:</span> {{member.months}} / {{member.days}}</p>
+				</div>
+	    	<div ng-if="member.myGames" class="add-friend-div">
+		    	<span>StreetPass Games:</span>
 		    	<ul>
 		    		<li ng-repeat="game in member.myGames">{{game}}</li>
 		    	</ul>

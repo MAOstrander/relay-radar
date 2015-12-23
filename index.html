@@ -8,7 +8,6 @@
   <title>StreetPass Relay Radar</title>
   <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="lib/bower_components/angular-bootstrap/ui-bootstrap-csp.css">
-  <link rel="stylesheet" type="text/css" href="lib/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
@@ -55,7 +54,7 @@
       <div >
         <img src="app/images/CloudLocate.gif" ng-click="geolocateMe()" class="cloud">
         <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
-        <img src="app/images/CloudSaveAddress.gif" ng-click="addSearch()" ng-show="loggedIn && matfrom" class="cloud">
+        <img src="app/images/CloudSaveAddress.gif" ng-click="addSearch()" ng-show="loggedIn && matfrom" class="cloud-right cloud">
       </div>
 
       <div id="mapframe">
@@ -76,7 +75,7 @@
       </div>
 
       <div>
-        <img src="app/images/CloudSaveAddress.gif" ng-click="toggleAddMode()" ng-show="loggedIn" class="cloud">
+        <img src="app/images/CloudAddRelay.gif" ng-click="toggleAddMode()" ng-show="loggedIn" class="cloud">
       </div>
     </div>
     

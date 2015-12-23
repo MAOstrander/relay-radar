@@ -25,6 +25,13 @@ div#mapframe {
 	padding: 50px;
 }
 
+.cloud-right {
+	float: right;
+}
+.cloud {
+	margin: 20px 0;
+}
+
 pageslide {
 	background-color: #ddd;
 }
@@ -41,7 +48,7 @@ pageslide {
 }
 
 #content {
-	margin-top: 80px;
+	margin-top: 55px;
 }
 
 .angular-google-map-container { 
@@ -74,6 +81,13 @@ pageslide {
 	margin-top: 20px;
 }
 
+#from {
+	font-size: 1.5em;
+	height: auto;
+	margin: 25px 10px;
+	width: 380px;
+}
+
 .loginContent button {
 	margin: 0 10px;
 }
@@ -97,4 +111,59 @@ form label {
 }
 select {
 	width: 100%;
+}
+
+// Find Friends Section
+.other-members:first-child {
+	border-top: 2px solid black;
+}
+
+.other-right {
+	float: right;
+	margin: 24px 0 0 0;
+	padding: 0;
+}
+.other-members {
+	min-height: 100px;
+	padding: 10px;
+	border-bottom: 2px solid black;
+}
+
+.btn-addfriend {
+	float: left;
+	height: 80px;
+	width: 80px;
+	margin-right: 25px;
+	background-image: url("../app/images/1up.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	border: 1px solid black;
+	// background-color: #6b88fe;
+}
+.btn-addfriend:hover {
+	opacity: 0.8;
+}
+
+.add-friend-div h3 {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+.add-friend-div span {
+	font-weight: bold;
+}
+
+.add-friend-div > p, .add-friend-div li {
+	display: inline-block;
+	margin: 0 10px 10px 0;
+	padding-right: 10px;
+}
+ .other-right > p {
+ 	display: inline-block;
+	margin: 0 0 0 20px;
+	padding-right: 0;
+ }
+
+.add-friend-div li:not(:last-child) {
+	border-right: 1px solid black;
 }
