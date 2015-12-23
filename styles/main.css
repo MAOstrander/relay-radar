@@ -26,8 +26,28 @@ div#mapframe {
 .cloud {
   margin: 20px 0; }
 
-pageslide {
-  background-color: #ddd; }
+pageslide.left-side {
+  background-color: #6b88fe;
+  background-image: url("../app/images/Flag.gif");
+  background-attachment: contain;
+  background-position: bottom;
+  background-repeat: no-repeat; }
+
+pageslide.right-side {
+  background-color: #6b88fe;
+  background-image: url("../app/images/Castle.gif");
+  background-attachment: contain;
+  background-position: bottom;
+  background-repeat: no-repeat; }
+
+.each-message {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #eee;
+  margin-bottom: 10px; }
+
+.each-message span {
+  font-weight: bold; }
 
 .sidebar-slide {
   margin-top: 75px;
@@ -70,7 +90,7 @@ pageslide {
   font-size: 1.5em;
   height: auto;
   margin: 25px 10px;
-  width: 380px; }
+  width: 370px; }
 
 .loginContent button {
   margin: 0 10px; }
@@ -85,11 +105,11 @@ pageslide {
 .controlButtons {
   margin: 20px 0 20px 0; }
 
-form label {
+.loginContent label {
   display: block;
   margin: 10px; }
 
-select {
+.loginContent select {
   width: 100%; }
 
 .other-members:first-child {

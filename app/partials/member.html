@@ -1,23 +1,23 @@
 <section>
 
-  <pageslide ps-side="left" ps-squeeze="true" ps-open="ProfileSlide">
+  <pageslide class="left-side" ps-side="left" ps-squeeze="true" ps-open="ProfileSlide">
     <div class="sidebar-slide">
     	<h2>Username: {{memberProfile.username}}</h2>
     	<div ng-if="!editMode">
-	    	<button class="btn" ng-click="toggleEditMode()">Update Profile?</button>
+	    	<button class="btn cloud-right" ng-click="toggleEditMode()">Edit Profile</button>
 	    	<p>Zip: {{memberProfile.zip}}</p>
 	    	<p>Favorite Color: {{memberProfile.colorFave}}</p>
 	    	<p>Favorite Hobby: {{memberProfile.hobby}}</p>
-	    	<p>Gender: {{memberProfile.gender}}</p>
-	    	<p>Birthday: {{memberProfile.months}} / {{memberProfile.days}}</p>
-	    	<p>3DS Friendcode: {{memberProfile.fcode}}</p>
-	    	<div>
+	    	<p ng-if="memberProfile.gender">Gender: {{memberProfile.gender}}</p>
+	    	<p ng-if="memberProfile.days">Birthday: {{memberProfile.months}} / {{memberProfile.days}}</p>
+	    	<p ng-if="memberProfile.fcode">3DS Friendcode: {{memberProfile.fcode}}</p>
+	    	<div ng-if="memberProfile.myGames">
 		    	StreetPass Games:
 		    	<ul>
 		    		<li ng-repeat="game in memberProfile.myGames">{{game}}</li>
 		    	</ul>
 	    	</div>
-	    	<div>
+	    	<div ng-if="memberProfile.records">
 		    	3DS Achievements:
 		    	<ul>
 		    		<li ng-repeat="record in memberProfile.records">{{record}}</li>
@@ -25,7 +25,7 @@
 	    	</div>
     	</div>
     	<div ng-if="editMode">
-	    	<button class="btn" ng-click="toggleEditMode()">Save Changes</button>
+	    	<button class="btn cloud-right" ng-click="toggleEditMode()">Save Changes</button>
 
 	    	<input  type="text" placeholder="Enter Zipcode" ng-model="memberProfile.zip" required>
 
@@ -62,10 +62,10 @@
     </div>
   </pageslide>
 
-  <pageslide ps-squeeze="true" ps-open="messageSlide">
+  <pageslide class="right-side" ps-squeeze="true" ps-open="messageSlide">
     <div class="sidebar-slide">
         <h2>Messages:</h2>
-        <div ng-repeat="(from, content) in memberProfile.messages" class="message-body">
+        <div class="each-message" ng-repeat="(from, content) in memberProfile.messages" class="message-body">
         	<span class="message-from">{{from}}: </span>{{content}}
         </div>
     </div>
