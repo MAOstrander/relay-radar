@@ -15,10 +15,23 @@ a.navbar-brand, .navbar-nav > li {
   background-image: url("../app/images/EmptyBlockFlat.gif");
   background-size: 100% 100%; }
 
+.navbar-nav > * {
+  font-size: 1rem;
+  margin-left: 4em;
+  padding: 15px; }
+
 div#mapframe {
   background-image: url("../app/images/TitleMenuFrame.jpg");
   background-size: 100% 100%;
   padding: 50px; }
+
+.angular-google-map-container {
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto; }
+
+#content {
+  margin-top: 55px; }
 
 .cloud-right {
   float: right; }
@@ -58,19 +71,6 @@ pageslide.right-side {
   line-height: 1.2rem;
   display: block;
   margin: 5px; }
-
-#content {
-  margin-top: 55px; }
-
-.angular-google-map-container {
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto; }
-
-.navbar-nav > * {
-  font-size: 1rem;
-  margin-left: 4em;
-  padding: 15px; }
 
 .modal-content {
   background-color: #0080ff; }
