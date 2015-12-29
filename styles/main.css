@@ -39,6 +39,27 @@ div#mapframe {
 .cloud {
   margin: 20px 0; }
 
+#what div.row {
+  padding: 10px 20px 20px 20px; }
+
+#what div.row div {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #7e99ff; }
+
+.highlight {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #7e99ff;
+  padding: 0 20px 20px 20px;
+  margin-top: 20px; }
+
+#why-log-in {
+  background-image: url("../app/images/GroundSmall.gif");
+  background-position: bottom;
+  background-repeat: repeat-x;
+  padding-bottom: 85px; }
+
 pageslide.left-side {
   background-color: #6b88fe;
   background-image: url("../app/images/Flag.gif");
@@ -124,8 +145,18 @@ pageslide.right-side {
 .loginContent select {
   width: 100%; }
 
+#all-friends {
+  background-color: black;
+  color: white;
+  border: 2px solid white; }
+
+.friends-blocks {
+  background-image: url("../app/images/CastleBlocks.gif"); }
+  .friends-blocks button {
+    margin-left: 25px; }
+
 .other-members:first-child {
-  border-top: 2px solid black; }
+  border-top: 2px solid white; }
 
 .other-right {
   float: right;
@@ -135,7 +166,7 @@ pageslide.right-side {
 .other-members {
   min-height: 100px;
   padding: 10px;
-  border-bottom: 2px solid black; }
+  border-bottom: 2px solid white; }
 
 .btn-addfriend {
   float: left;
@@ -145,7 +176,7 @@ pageslide.right-side {
   background-image: url("../app/images/1up.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  border: 1px solid black; }
+  border: 1px solid white; }
 
 .btn-addfriend:hover {
   opacity: 0.8; }
@@ -168,6 +199,9 @@ pageslide.right-side {
   padding-right: 0; }
 
 .add-friend-div li:not(:last-child) {
-  border-right: 1px solid black; }
+  border-right: 1px solid white; }
+
+.secret {
+  visibility: hidden; }
 
 /*# sourceMappingURL=main.css.map */

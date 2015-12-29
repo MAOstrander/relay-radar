@@ -73,13 +73,13 @@
     </div>
   </pageslide>
 
-	<section ng-if="friendDash===true">
-		<h2>Friends</h2>
-		<div>
+	<section ng-if="friendDash===true" id="all-friends">
+		<h2>Other Playerse</h2>
+		<div class="friends-blocks">
 			<button class="btn" ng-click="showFriends()">Friends</button>
 			<button class="btn" ng-click="showAll()">All Users</button>
 		</div>
-		<div ng-show="friends==='current'" id="current-friends">
+		<div ng-show="friends==='current'" class="current-friends">
 			<div class="other-members" ng-repeat="member in allUsers | filter:searchBy()">
 				<div class="add-friend-div">
 					<h3>{{member.username}}</h3>
@@ -126,5 +126,8 @@
 	    	</div>
 			</div>
 		</div> <!-- End of find friends section -->
+		<div class="friends-blocks">
+			<button class="btn secret">You Found the Secret!</button>
+		</div>
 	</section>
 </section>

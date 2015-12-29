@@ -9,10 +9,10 @@ app.controller('navigation',
   $rootScope.messageSlide = false;
 
   $scope.whatIsThis = function(){
-    window.scrollTo(0, 575);
+    window.scrollTo(0, 725);
   };
   $scope.whyLogin = function(){
-    window.scrollTo(0, 1000);
+    window.scrollTo(0, 1500);
   };
 
   $scope.friendDashboard = function(){
