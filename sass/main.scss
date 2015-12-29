@@ -60,6 +60,23 @@ pageslide.left-side {
 	background-repeat: no-repeat;
 }
 
+	// Edit Profile Mode
+#zip-edit-input {
+	width: 110px;
+}
+
+.edit-profile-select {
+	display: block;
+}
+
+.profile-span {
+	display: block;
+}
+
+#edit-friendcode {
+	margin: 10px;
+}
+
 // Messages pageslide
 pageslide.right-side {
 	background-color: #6b88fe;

@@ -46,6 +46,18 @@ pageslide.left-side {
   background-position: bottom;
   background-repeat: no-repeat; }
 
+#zip-edit-input {
+  width: 110px; }
+
+.edit-profile-select {
+  display: block; }
+
+.profile-span {
+  display: block; }
+
+#edit-friendcode {
+  margin: 10px; }
+
 pageslide.right-side {
   background-color: #6b88fe;
   background-image: url("../app/images/Castle.gif");

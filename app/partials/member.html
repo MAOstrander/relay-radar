@@ -27,11 +27,11 @@
     	<div ng-if="editMode">
 	    	<button class="btn cloud-right" ng-click="toggleEditMode()">Save Changes</button>
 
-	    	<input  type="text" placeholder="Enter Zipcode" ng-model="memberProfile.zip" required>
+	    	<input id="zip-edit-input" type="text" placeholder="Enter Zipcode" ng-model="memberProfile.zip" required>
 
-	    	<select ng-model="memberProfile.colorFave" ng-options="color for color in colorArray"></select>
+	    	<select class="edit-profile-select" ng-model="memberProfile.colorFave" ng-options="color for color in colorArray"></select>
 
-	    	<select ng-model="memberProfile.hobby" ng-options="hobby for hobby in hobbyArray"></select>
+	    	<select class="edit-profile-select" ng-model="memberProfile.hobby" ng-options="hobby for hobby in hobbyArray"></select>
     	  <label>
 
 			    <input type="radio" ng-model="memberProfile.gender" value="Female">
@@ -42,22 +42,24 @@
 			    Male
 			  </label>
 
-			  Birthday: <select ng-model="memberProfile.months" ng-options="month for month in monthArray"></select> / <select ng-model="memberProfile.days" ng-options="day for day in dayArray"></select> 
+			  <span class="profile-span">Birthday: 
+			  	<select ng-model="memberProfile.months" ng-options="month for month in monthArray"></select> / <select ng-model="memberProfile.days" ng-options="day for day in dayArray"></select>
+			  </span>
 
-	    	<input  type="text" placeholder="Enter Friendcode" ng-model="memberProfile.fcode">
+	    	<input id="edit-friendcode" type="text" placeholder="Enter Friendcode" ng-model="memberProfile.fcode">
 
-	    	Which StreetPass Games do you play?
+	    	<span class="profile-span">Which StreetPass Games do you play?</span>
 	    	<label ng-repeat="games in gameArray">
 				  <input type="checkbox" checklist-model="memberProfile.myGames" checklist-value="games"> {{games}}
 				</label>
 
-	    	What 3DS Achievements have you unlocked?
+<!-- 	    	What 3DS Achievements have you unlocked?
 	    	<label>THERE ARE SO MANY:
 			    <input type="checkbox" ng-model="memberProfile.records.thing">
 			  </label>
 			  <label>OH MY:
 			    <input type="checkbox" ng-model="memberProfile.records.that">
-			  </label>
+			  </label> -->
     	</div>
     </div>
   </pageslide>
