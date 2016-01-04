@@ -56,7 +56,6 @@
         <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
         <img src="app/images/CloudSaveAddress.gif" ng-click="addSearch()" ng-show="loggedIn && matfrom" class="cloud-right cloud">
       </div>
-
       <div id="mapframe">
         <ui-gmap-google-map  
           center="map.center" 
@@ -68,7 +67,7 @@
           <ui-gmap-marker 
             ng-repeat="m in map.markers" 
             coords="m.coords" 
-            icon="m.icon" 
+            options="options" 
             idKey="m.id">
           </ui-gmap-marker>
         </ui-gmap-google-map>

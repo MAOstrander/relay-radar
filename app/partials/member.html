@@ -1,5 +1,5 @@
 <section>
-
+	<!-- PROFILE PAGESLIDE -->
   <pageslide class="left-side" ps-side="left" ps-squeeze="true" ps-open="ProfileSlide">
     <div class="sidebar-slide">
     	<h2>Username: {{memberProfile.username}}</h2>
@@ -53,6 +53,7 @@
 				  <input type="checkbox" checklist-model="memberProfile.myGames" checklist-value="games"> {{games}}
 				</label>
 
+				<!-- This will need to be remade as a modal instead -->
 <!-- 	    	What 3DS Achievements have you unlocked?
 	    	<label>THERE ARE SO MANY:
 			    <input type="checkbox" ng-model="memberProfile.records.thing">
@@ -64,6 +65,7 @@
     </div>
   </pageslide>
 
+	<!-- MESSAGES PAGESLIDE -->
   <pageslide class="right-side" ps-squeeze="true" ps-open="messageSlide">
     <div class="sidebar-slide">
         <h2>Messages:</h2>

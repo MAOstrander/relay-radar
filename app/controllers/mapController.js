@@ -6,6 +6,8 @@ app.controller("mapController",
     var matLong = -122.1395801;
     var addMode;
     $scope.matfrom = '';
+    $scope.coinIcon = 'app/images/Coin.gif';
+    console.log("coinIcon", $scope.coinIcon);
     console.log("fireFactory", fireFactory);
 
     //This is in order to recenter the map based on the users Geolocation upon button click
@@ -64,7 +66,8 @@ app.controller("mapController",
     $scope.options = {
       scrollwheel: false,
       streetViewControl: false,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      icon: 'app/images/SmallCoin.gif'
     };
     
     var inputFrom = document.getElementById('from');
