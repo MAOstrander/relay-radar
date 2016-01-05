@@ -6,6 +6,8 @@ app.controller("memberController",
 	$scope.friends = 'current';
 	var memberUid = fireFactory.getUid();
 	console.log("memberProfile UID:", memberUid);
+  $scope.sendTo = '';
+  $scope.messageToSend = '';
 
 	//Load the profile of the currently logged in user
   var profileRef = new Firebase("https://relay-radar.firebaseio.com/user/"+memberUid);
@@ -29,13 +31,13 @@ app.controller("memberController",
   $scope.searchBy = function () {
     return function (maybeFriend) {
     	for (var testUID in $scope.memberProfile.friendsList) {
-    		console.log("testUID", $scope.memberProfile.friendsList[testUID]);
-    		console.log("maybeFriend.uid", maybeFriend.uid);
+    		// console.log("testUID", $scope.memberProfile.friendsList[testUID]);
+    		// console.log("maybeFriend.uid", maybeFriend.uid);
     		if ($scope.memberProfile.friendsList[testUID] === memberUid) {
     			console.log("That's you!");
     		} else {
 		      if ( $scope.memberProfile.friendsList[testUID] === maybeFriend.uid ) {
-		      	console.log("maybeFriend", maybeFriend);
+		      	// console.log("maybeFriend", maybeFriend);
 		        return true;
 		      }
 		    }
@@ -47,10 +49,10 @@ app.controller("memberController",
     return function (maybeFriend) {
     	var isFriend = false;
     	for (var testUID in $scope.memberProfile.friendsList) {
-    		console.log("testUID", $scope.memberProfile.friendsList[testUID]);
-    		console.log("maybeFriend.uid", maybeFriend.uid);
+    		// console.log("testUID", $scope.memberProfile.friendsList[testUID]);
+    		// console.log("maybeFriend.uid", maybeFriend.uid);
 	      if ( $scope.memberProfile.friendsList[testUID] === maybeFriend.uid ) {
-	      	console.log("maybeFriend", maybeFriend);
+	      	// console.log("maybeFriend", maybeFriend);
 	      	isFriend = true;
 	      }
     	}
@@ -76,16 +78,25 @@ app.controller("memberController",
 	$scope.showAll = function(){
 		$scope.friends = 'find';
   };
-	$scope.showFriends = function(){
-		$scope.friends = 'current';
+  $scope.showFriends = function(){
+    $scope.friends = 'current';
   };
   
 
   $scope.addFriend = function(friendsUid){
-  	var newRef = new Firebase('https://relay-radar.firebaseio.com/user/');
-  	newRef.child(memberUid).child('friendsList').push(friendsUid.uid);
+    var newRef = new Firebase('https://relay-radar.firebaseio.com/user/');
+    newRef.child(memberUid).child('friendsList').push(friendsUid.uid);
   };
 
+	$scope.sendMessage = function(){
+    var sendHere = $scope.sendTo.uid;
+    var newMessageRef = new Firebase('https://relay-radar.firebaseio.com/user/' + sendHere);
+    var theMessage = {'from': $scope.memberProfile.username, 'message': $scope.messageToSend};
+    newMessageRef.child('messages').push(theMessage);
+
+    $scope.messageToSend = '';
+    $scope.sendTo = '';
+  };
 
 
 }]);

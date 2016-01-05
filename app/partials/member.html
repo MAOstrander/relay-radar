@@ -69,12 +69,24 @@
   <pageslide class="right-side" ps-squeeze="true" ps-open="messageSlide">
     <div class="sidebar-slide">
         <h2>Messages:</h2>
-        <div class="each-message" ng-repeat="(from, content) in memberProfile.messages" class="message-body">
-        	<span class="message-from">{{from}}: </span>{{content}}
+        	<label class="message-select">
+        		Send a Message to: 
+        		<select ng-model="sendTo" ng-options="member.username for member in allUsers | filter:searchBy()"></select>
+        	</label>
+
+        	<div class="message-select" ng-show="sendTo">        			
+	        	<input id="message-input" type="text" placeholder="Type your message here!" ng-model="messageToSend">
+	        	<button class="btn" ng-click="sendMessage()" >Send</button>
+        	</div>
+
+        <!-- Display current messages -->
+        <div class="each-message" ng-repeat="mess in memberProfile.messages">
+        	<span class="message-from">{{mess.from}}: </span>{{mess.message}}
         </div>
     </div>
   </pageslide>
 
+	<!-- FRIENDS and OTHERS Section below map -->
 	<section ng-if="friendDash===true" id="all-friends">
 		<h2>Other Players</h2>
 		<div class="friends-blocks">

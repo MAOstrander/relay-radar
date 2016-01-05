@@ -86,11 +86,21 @@ pageslide.right-side {
   background-position: bottom;
   background-repeat: no-repeat; }
 
+.message-select {
+  margin-bottom: 15px; }
+
+#message-input {
+  line-height: 2em;
+  border-radius: 5px; }
+
 .each-message {
   border: 1px solid white;
   border-radius: 5px;
   background-color: #eee;
   margin-bottom: 10px; }
+
+.each-message:first-child {
+  margin-top: 20px; }
 
 .each-message span {
   font-weight: bold; }
@@ -122,8 +132,10 @@ pageslide.right-side {
 #from {
   font-size: 1.5em;
   height: auto;
+  line-height: 2em;
   margin: 25px 10px;
-  width: 370px; }
+  width: 370px;
+  border-radius: 5px; }
 
 .loginContent button {
   margin: 0 10px; }
