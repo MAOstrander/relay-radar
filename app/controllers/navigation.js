@@ -3,18 +3,22 @@ app.controller('navigation',
   function($scope, $rootScope, $uibModal, $log, fireFactory, $location) {
 
   $scope.animationsEnabled = true;
+  // Workaround for the top navbar and map to never have to reload
   $rootScope.loggedIn = false;
   $rootScope.friendDash = false;
   $rootScope.ProfileSlide = false;
   $rootScope.messageSlide = false;
 
+  // Scroll down to the 'What is this?' section
   $scope.whatIsThis = function(){
     window.scrollTo(0, 725);
   };
+  // Scroll down to the 'Why Log in?' section
   $scope.whyLogin = function(){
     window.scrollTo(0, 1500);
   };
 
+  // Show or hide the friendslist at bottom of screen
   $scope.friendDashboard = function(){
     if ($scope.friendDash) {
       $rootScope.friendDash = false;
@@ -23,6 +27,7 @@ app.controller('navigation',
     }
   };
 
+  // Show or hide the Profile Sidebar on left
   $scope.profileSlider = function(){
     console.log("You clicked profile");
     if ($rootScope.ProfileSlide) {
@@ -33,6 +38,7 @@ app.controller('navigation',
       console.log("Slider should open");
     }
   };
+  // Show or hide the Message Sidebar on right
   $scope.messageSlider = function(){
     console.log("You clicked messages");
     if ($rootScope.messageSlide) {
@@ -44,6 +50,7 @@ app.controller('navigation',
     }
   };
 
+  // Logs out and takes to intro page
   $scope.logOut = function() {
     fireFactory.useAuth().$unauth();
     $scope.authData = null;
@@ -53,6 +60,7 @@ app.controller('navigation',
     $location.path('/intro').replace();
   };
 
+  // This is the login modal
   $scope.loginModal = function () {
     var modalInstance = $uibModal.open({
       templateUrl: 'app/partials/loginModal.html',
@@ -63,6 +71,7 @@ app.controller('navigation',
       }
     });
     modalInstance.result.then(function (modalresult) {
+      //If they click signup, brings up the signup modal
       if (modalresult === "initiateSignup") {
         var signupModalInstance = $uibModal.open({
           templateUrl: 'app/partials/signupModal.html',
@@ -73,8 +82,10 @@ app.controller('navigation',
           }
         });
       } else {
+        // If they were able to login then store that state...
         if (modalresult.uid) {
           $rootScope.loggedIn = true;
+          // ...and change the navbar & pages
           $location.path('/member').replace();
         }
       }
@@ -94,6 +105,7 @@ app.controller('ModalInstanceCtrl',
 
   $scope.user={};
 
+  //Logs the user in with email/password
   $scope.loginUser = function() {
     $scope.message = null;
     $scope.error = null;
@@ -110,12 +122,14 @@ app.controller('ModalInstanceCtrl',
     });
   };
 
+  //Closes this modal and will load the sign up modal
   $scope.signUp = function() {
       $scope.message = null;
       $scope.error = null;
       $uibModalInstance.close("initiateSignup");
     };
   
+  //Dismiss without logging in or signing up
   $scope.cancel = function () {
     console.log("This is from the cancel function");
     $uibModalInstance.dismiss('cancel');
@@ -133,7 +147,7 @@ app.controller('signupFormCtrl',
   $scope.favoriteHobby = $scope.hobbyArray[26];
 
 
-
+  // Submit the info for signup
   $scope.submitSignUp = function() {
     $scope.message = null;
     $scope.error = null;

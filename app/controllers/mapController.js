@@ -27,6 +27,7 @@ app.controller("mapController",
     //This is called in order to locate the user upon arrival
     $scope.geolocateMe();
 
+    // The user clicks the 'Add Relay' button, then clicks the map or the button again
     $scope.toggleAddMode = function(){
       if (addMode) {
         addMode = false;
@@ -37,6 +38,7 @@ app.controller("mapController",
       }
     };
 
+    //Create the map on the scope and load the markers in
 		$scope.map = {
       center: {latitude: matLat, longitude: matLong },
       zoom: 15,
@@ -63,6 +65,7 @@ app.controller("mapController",
         }
       }
     };
+    //options to disable streetview and custom marker images
     $scope.options = {
       scrollwheel: false,
       streetViewControl: false,
@@ -70,11 +73,12 @@ app.controller("mapController",
       icon: 'app/images/SmallCoin.gif'
     };
     
+    // Input form autocomplete
     var inputFrom = document.getElementById('from');
     console.log("inputFrom", inputFrom);
     var autocompleteFrom = new google.maps.places.Autocomplete(inputFrom, $scope.options);
 
-
+    // Saves a marker at the input/autocomplete address
     $scope.addSearch = function(){
       var addressMarker = {
           creator: fireFactory.getUid(),
@@ -89,6 +93,7 @@ app.controller("mapController",
         console.log($scope.map.markers);
     };
 
+  // This moves the map to a new location from the search box
   google.maps.event.addListener(autocompleteFrom, 'place_changed', function() {
         var place = autocompleteFrom.getPlace();
         $scope.matfrom = place.formatted_address;

@@ -1,16 +1,22 @@
 <div class="loginContent">
 	<form name="signUpForm">
+		<!-- Username -->
 		<input class="form-control" type="text" placeholder="Enter Username" autofocus ng-model="user.username" required>
 
+		<!-- Email -->
 		<input class="form-control" type="text" id="email" placeholder="Enter Email" ng-model="user.email" required>
 
+		<!-- Password -->
 		<input class="form-control" type="password" id="password" placeholder="Enter Password" ng-model="user.password" required>
 
+		<!-- Zipcode -->
 		<input class="form-control" type="text" id="zip" placeholder="Enter Zipcode" ng-model="user.zip" required>
 
+		<!-- Color of Mii -->
 	  <label for="colorFave"> Select Favorite Color: </label>
 	    <select ng-model="favoriteColor" class="selectpicker" ng-options="color for color in colorArray"></select>
 
+		<!-- Hobby of Mii -->
 	  <label for="hobby"> Select Favorite Hobby: </label>
 		  <select ng-model="favoriteHobby"  class="selectpicker" ng-options="hobby for hobby in hobbyArray"></select>
 	</form>
@@ -18,9 +24,10 @@
 
 	<div class="controlButtons">
 
-	  <!-- Signup -->
+	  <!-- Signup is inactive unless text is in the form fields -->
 	  <button class="btn btn-primary" type="button" id="ready-go" ng-click="submitSignUp()" ng-disabled="signUpForm.$invalid">Complete Sign Up</button>
 
+	  <!-- Cancel -->
 	  <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
 
 	</div>

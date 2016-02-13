@@ -27,24 +27,26 @@ app.controller("memberController",
  	$scope.allUsers = $firebaseArray(allUserRef);
  	console.log("memberProfile", $scope.allUsers);
 
-
+  // This filter is for all the users, returning only people in the friend list
   $scope.searchBy = function () {
     return function (maybeFriend) {
-    	for (var testUID in $scope.memberProfile.friendsList) {
-    		// console.log("testUID", $scope.memberProfile.friendsList[testUID]);
-    		// console.log("maybeFriend.uid", maybeFriend.uid);
-    		if ($scope.memberProfile.friendsList[testUID] === memberUid) {
-    			console.log("That's you!");
-    		} else {
-		      if ( $scope.memberProfile.friendsList[testUID] === maybeFriend.uid ) {
-		      	// console.log("maybeFriend", maybeFriend);
-		        return true;
-		      }
-		    }
-    	}
+      for (var testUID in $scope.memberProfile.friendsList) {
+        // console.log("testUID", $scope.memberProfile.friendsList[testUID]);
+        // console.log("maybeFriend.uid", maybeFriend.uid);
+        if ($scope.memberProfile.friendsList[testUID] === memberUid) {
+          //Don't display yourself
+          console.log("That's you!");
+        } else {
+          if ( $scope.memberProfile.friendsList[testUID] === maybeFriend.uid ) {
+            // console.log("maybeFriend", maybeFriend);
+            return true;
+          }
+        }
+      }
     };
   };
 
+  // This filter is for all the users, returning only people NOT in the friend list
   $scope.notFriends = function () {
     return function (maybeFriend) {
     	var isFriend = false;
@@ -62,38 +64,39 @@ app.controller("memberController",
     };
   };
 
-
+  // This allows a user to edit their profile information and save it
  	$scope.toggleEditMode = function(){
     if ($scope.editMode) {
       $scope.editMode = false;
-      console.log("no longer in edit Profile mode");
-      console.log("gamesChecked", $scope.gameChecked);
       $scope.memberProfile.$save();
     } else {
       $scope.editMode = true;
-      console.log("Edit Profile mode");
     }
   };
 
-	$scope.showAll = function(){
-		$scope.friends = 'find';
+  //This shows all the users that aren't currently friends
+  $scope.showAll = function(){
+    $scope.friends = 'find';
   };
+  //This shows the list of friends
   $scope.showFriends = function(){
     $scope.friends = 'current';
   };
-  
 
+  // When you click the 'Friend+' button it adds the target to the user's friend list
   $scope.addFriend = function(friendsUid){
     var newRef = new Firebase('https://relay-radar.firebaseio.com/user/');
     newRef.child(memberUid).child('friendsList').push(friendsUid.uid);
   };
 
+  //Allows you to send a message to a friend
 	$scope.sendMessage = function(){
     var sendHere = $scope.sendTo.uid;
     var newMessageRef = new Firebase('https://relay-radar.firebaseio.com/user/' + sendHere);
     var theMessage = {'from': $scope.memberProfile.username, 'message': $scope.messageToSend};
     newMessageRef.child('messages').push(theMessage);
 
+    //reset the fields
     $scope.messageToSend = '';
     $scope.sendTo = '';
   };

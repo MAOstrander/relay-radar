@@ -19,12 +19,6 @@
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
- <!--        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button> -->
         <a class="navbar-brand" href="#">Relay Radar</a>
       </div>
 
@@ -52,10 +46,14 @@
     <div ng-controller="mapController">
 
       <div >
+        <!-- 'Geolocate Me' cloud button -->
         <img src="app/images/CloudLocate.gif" ng-click="geolocateMe()" class="cloud">
+        <!-- Address input -->
         <input id="from" type="text" ng-model="matfrom" placeholder="Type Address" class="ng-pristine ng-valid">
+        <!-- If you are logged in and text is in the input field this button offers to save marker at address -->
         <img src="app/images/CloudSaveAddress.gif" ng-click="addSearch()" ng-show="loggedIn && matfrom" class="cloud-right cloud">
       </div>
+      <!-- This loads the map and the markers (marker directive with ng-repeat, not 'markers') -->
       <div id="mapframe">
         <ui-gmap-google-map  
           center="map.center" 
@@ -73,6 +71,7 @@
         </ui-gmap-google-map>
       </div>
 
+      <!-- This is the 'Add Relay' cloud button, displays if logged in -->
       <div>
         <img src="app/images/CloudAddRelay.gif" ng-click="toggleAddMode()" ng-show="loggedIn" class="cloud">
       </div>
@@ -82,7 +81,7 @@
       
   </div>
 
-
+  <!-- This is JavaScript Country -->
   <script src='lib/bower_components/lodash/lodash.min.js'></script>
   <script src='lib/bower_components/angular/angular.js'></script>
   <script src='lib/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
