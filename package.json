@@ -1,0 +1,28 @@
+{
+  "name": "relayradar",
+  "version": "1.0.0",
+  "description": "This was my Front-End Capstone for Nashville Software School, but I will continue to work and develop it as a side project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "serve": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MAOstrander/relay-radar.git"
+  },
+  "author": "Mathew Ostrander <mathew.ostrander@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MAOstrander/relay-radar/issues"
+  },
+  "homepage": "https://github.com/MAOstrander/relay-radar#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.0"
+  }
+}
