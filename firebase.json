@@ -1,0 +1,9 @@
+{
+  "firebase": "relay-radar",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
