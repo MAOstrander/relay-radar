@@ -25,6 +25,6 @@
     "angular-bootstrap": "~0.14.3",
     "angular-pageslide-directive": "ng-pageslide#~1.0.8",
     "checklist-model": "~0.8.0",
-    "lodash": "^4.5.1"
+    "lodash": "3.10.1"
   }
 }
