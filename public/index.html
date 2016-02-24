@@ -55,17 +55,17 @@
       </div>
       <!-- This loads the map and the markers (marker directive with ng-repeat, not 'markers') -->
       <div id="mapframe">
-        <ui-gmap-google-map  
-          center="map.center" 
-          zoom="map.zoom" 
-          draggable="true" 
+        <ui-gmap-google-map
+          center="map.center"
+          zoom="map.zoom"
+          draggable="true"
           options="options"
           events="map.events">
 
-          <ui-gmap-marker 
-            ng-repeat="m in map.markers" 
-            coords="m.coords" 
-            options="options" 
+          <ui-gmap-marker
+            ng-repeat="m in map.markers"
+            coords="m.coords"
+            options="options"
             idKey="m.id">
           </ui-gmap-marker>
         </ui-gmap-google-map>
@@ -76,13 +76,13 @@
         <img src="app/images/CloudAddRelay.gif" ng-click="toggleAddMode()" ng-show="loggedIn" class="cloud">
       </div>
     </div>
-    
+
     <div ng-view></div>
-      
+
   </div>
 
   <!-- This is JavaScript Country -->
-  <script src='lib/bower_components/lodash/lodash.min.js'></script>
+  <script src='lib/bower_components/lodash/dist/lodash.min.js'></script>
   <script src='lib/bower_components/angular/angular.js'></script>
   <script src='lib/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
   <script src='lib/bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
