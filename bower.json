@@ -26,5 +26,8 @@
     "angular-pageslide-directive": "ng-pageslide#~1.0.8",
     "checklist-model": "~0.8.0",
     "lodash": "3.10.1"
+  },
+  "resolutions": {
+    "angular": "1.4.9"
   }
 }
