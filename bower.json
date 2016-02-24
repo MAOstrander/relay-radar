@@ -1,0 +1,29 @@
+{
+  "name": "relayradar",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Mathew Ostrander <mathew.ostrander@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "https://github.com/MAOstrander/relay-radar.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "firebase": "~2.3.2",
+    "angularfire": "~1.1.3",
+    "angular-google-maps": "~2.2.1",
+    "angular-bootstrap": "~0.14.3",
+    "angular-pageslide-directive": "ng-pageslide#~1.0.8",
+    "checklist-model": "~0.8.0"
+  }
+}

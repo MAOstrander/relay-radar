@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install",
     "start": "node server.js",
     "serve": "nodemon server.js"
   },
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/MAOstrander/relay-radar#readme",
   "dependencies": {
+    "bower": "^1.7.7",
     "express": "^4.13.4",
     "mongoose": "^4.4.4"
   },
