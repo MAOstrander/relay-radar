@@ -1,6 +1,8 @@
 # StreetPass Relay Radar
 ### Companion site for the Nintendo 3DS family
 
+You can try out the [online version here](https://relay-radar.firebaseapp.com)!
+
 ## About
 This was my Front-End Capstone for Nashville Software School, but I will continue to work and develop it as a side project
 
